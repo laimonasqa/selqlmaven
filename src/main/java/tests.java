@@ -21,6 +21,9 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+
+
+
 import javax.swing.*;
 import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTML.Tag;
@@ -87,7 +90,10 @@ public class tests {
 		rs= stat.executeQuery("select * from gotest"); //execute sql query
 						
 		rs.first();
-		batchid=(rs.getString("batchid")); //read from recordset
+		batchid=String.valueOf(System.getProperty("batch"));
+		if(batchid.equals("null")){
+		batchid=(rs.getString("batchid"));} //read from recordset
+		System.out.println(batchid);
 		//System.out.println(rs.getString("batchid"));
 		//System.out.println(batchid);
 		//rs.close();
