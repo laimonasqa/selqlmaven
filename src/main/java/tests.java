@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -49,6 +50,8 @@ public class tests {
 	public static ResultSet ls=null;
 	public static ResultSet ss=null;
 	public static ResultSet ns=null;
+	public static ResultSet l1rs=null;
+	
 	
 	public static Statement stat=null;
 	public static Statement stat2=null;
@@ -130,12 +133,20 @@ public class tests {
 			ls.first();
 			//System.out.println(ls.getString("testkind"));
 			
-				
+			System.out.println(ls.getString("testid")+"    "+ls.getString("testkind"));	
 			//System.out.println(ls.getString("testkind"));
 			s=s+1;
 			if(ls.getString("testkind").equals("single")){
 				//System.out.println(ls.getString("testkind"));	
 				single(ls.getString("testid"));
+			
+			}
+			
+			if(ls.getString("testkind").equals("l1test")){
+				
+				result=result+"<p><H1>L1 Registering Test-----"+ls.getString("testid")+"</H1><p>";
+				//System.out.println(ls.getString("testkind"));	
+				l1test(ls.getString("testid"));
 			
 			}
 			//}
@@ -163,6 +174,148 @@ public class tests {
 		
 	//}
   
+	public void l1test(String testid) throws Exception{
+		
+		String link,fname,lname,email,day,month,year,next,eighteen,accept,login,password,fun,realbutton;
+		boolean success=true;
+		int find=0;
+		
+			try{
+			
+				
+				Class.forName("com.mysql.jdbc.Driver");
+			
+			
+				con=DriverManager.getConnection("jdbc:mysql://"+servername+"/"+db, username, pass); 
+				}catch(ClassNotFoundException e){
+					System.out.println("Class Not Found: "+e.getMessage());
+						
+				}catch(SQLException e){
+					System.out.println(e.getMessage());
+				}finally{	
+		
+		stat3= con.createStatement();
+		//System.out.println(ls.getString("testkind"));
+		l1rs= stat3.executeQuery("select * from l1test where testid='"+testid+"'");
+		l1rs.first();
+		
+		link=l1rs.getString("link");
+		link=link.replaceAll("¬","'");
+		fname=l1rs.getString("fname");
+		fname=fname.replaceAll("¬","'");
+		lname=l1rs.getString("lname");
+		lname=lname.replaceAll("¬","'");
+		email=l1rs.getString("email");
+		email=email.replaceAll("¬","'");
+		day=l1rs.getString("day");
+		day=day.replaceAll("¬","'");
+		month=l1rs.getString("month");
+		month=month.replaceAll("¬","'");
+		year=l1rs.getString("year");
+		year=year.replaceAll("¬","'");
+		next=l1rs.getString("next");
+		next=next.replaceAll("¬","'");
+		eighteen=l1rs.getString("eighteen");
+		eighteen=eighteen.replaceAll("¬","'");
+		accept=l1rs.getString("accept");
+		accept=accept.replaceAll("¬","'");
+		login=l1rs.getString("login");
+		login=login.replaceAll("¬","'");
+		password=l1rs.getString("password");
+		password=password.replaceAll("¬","'");
+		fun=l1rs.getString("fun");
+		fun=fun.replaceAll("¬","'");
+		realbutton=l1rs.getString("realbutton");
+		realbutton=realbutton.replaceAll("¬","'");
+		
+		//System.out.println(link + "\n"+fname+ "\n"+lname+ "\n"+email+ "\n"+day+ "\n"+month+ "\n"+year+ "\n"+next+ "\n"+eighteen+ "\n"+accept+ "\n"+login+ "\n"+password+ "\n"+fun+ "\n"+realbutton);
+
+		try {
+			
+			success=true;
+			driver.findElement(By.xpath(link));
+			
+	    } catch (NoSuchElementException e1){
+	    		
+	    	success=false;					//Control different spelling for Contact Us Link
+	    	System.out.println("Register Link not found");	
+	    		//result=(result + "<p><FONT COLOR="+(char)34+"red"+(char)34+">"+ss.getString("tofind")+" Not Finded</FONT><p>");} 
+	       		//If no Contact Us 
+	    	
+	    } finally{
+	    	
+	    	if (success & find==0){
+	    		
+	    		Random rand = new Random();
+	    		
+	    		System.out.println("Register finded");
+	    		driver.findElement(By.xpath(link)).click();
+	    		
+	    		System.out.println("Hola");
+	    		
+	    		driver.findElement(By.xpath(fname)).clear(); 
+	    		driver.findElement(By.xpath(fname)).sendKeys("Daniel");
+	    		driver.findElement(By.xpath(lname)).clear(); 
+	    		driver.findElement(By.xpath(lname)).sendKeys("Prado");
+	    		
+	    		String genmail="Daniel"+rand.nextInt(100000)+"@gg.com";
+	    		driver.findElement(By.xpath(email)).clear(); 
+	    		driver.findElement(By.xpath(email)).sendKeys(genmail);
+	    		
+	    		//driver.findElement(By.xpath(day))
+	    		Select daydrop = new Select(driver.findElement(By.xpath(day)));
+	    		//daydrop.deselectAll();
+	    		daydrop.selectByVisibleText("18");
+	    		
+	    		Select monthdrop = new Select(driver.findElement(By.xpath(month)));
+	    		//daydrop.deselectAll();
+	    		monthdrop.selectByVisibleText("Jun");
+	    		Select yeardrop = new Select(driver.findElement(By.xpath(year)));
+	    		//daydrop.deselectAll();
+	    		yeardrop.selectByVisibleText("1977");
+	    		
+	    		driver.findElement(By.xpath(next)).click();
+	    		
+	    		String genlogin="mrt_test"+rand.nextInt(9999);
+	    		driver.findElement(By.xpath(login)).clear(); 
+	    		driver.findElement(By.xpath(login)).sendKeys(genlogin);
+	    		
+	    		driver.findElement(By.xpath(password)).clear(); 
+	    		driver.findElement(By.xpath(password)).sendKeys("111111");
+	    		
+	    		driver.findElement(By.xpath(eighteen)).click();
+	    		driver.findElement(By.xpath(accept)).click();
+	    		
+	    		driver.findElement(By.xpath(fun)).click();
+	    		
+	    		
+	    		//System.out.println("User " + genlogin + " with email "+ genmail + " succesfully registered as level 1 user");
+	    		
+	    		stat3.executeUpdate("insert into testuser(username,email,level) values('" + genlogin + "','"+genmail+"','1')");
+	    		
+	    		System.out.println("User " + genlogin + " with email "+ genmail + "succesfully registered as level 1 user");
+	    		result=result+"<p>USER="+genlogin+"----"+"E-Mail"+genmail+"-------"+"Level=1<p>-------Succesfully Registered";
+	    		
+	    		File file=new File("report1.htm");
+	    		FileWriter write = new FileWriter(file,true);
+	    		write.write(result);
+	    		write.close();
+	    		//driver.findElement(By.xpath(month)).selectByVisibleText("jun");
+	    		
+	    		//driver.findElement(By.xpath(year)).selectByVisibleText("1977");
+	    		
+	    		
+	    		
+	    		
+
+	    		
+	    	}
+		//driver.close();
+		//driver.quit();
+	    }
+	}}
+	
+	
 	public void single(String testid) throws Exception{
 		
 		result="";
@@ -260,7 +413,7 @@ public class tests {
 	    			try {
 	    				success2=true;
 	    				rxpath=ls.getString("xpath");
-	    				rxpath=rxpath.replaceAll("�","'");
+	    				rxpath=rxpath.replaceAll("¬","'");
 	    				System.out.println(rxpath);
 	    				driver.findElement(By.xpath(rxpath));
 	    		    } catch (NoSuchElementException e1){
@@ -323,7 +476,7 @@ public class tests {
 		    	  	//	    JOptionPane.ERROR_MESSAGE );
 		   // }
 	    		
-	    		xpath=xpath.replaceAll("'","�");
+	    		xpath=xpath.replaceAll("'","�");
 	    		ns= stat4.executeQuery("select * from tofindin where testid='"+testid+"' and xpath='" +xpath+"'");
 	    		while(ns.next()){
 	    		
@@ -337,7 +490,7 @@ public class tests {
 	    			System.out.println("Total------------------" + total + "-----------------");
 	    			
 	    			text=text.replaceAll("\\s+", " ");
-	    			split=text.split("��");
+	    			split=text.split("��");
 	    			//System.out.println(text);	    			 
 	    			//System.out.println(split.length);
 	    			//System.out.println(split[0]);
@@ -355,7 +508,7 @@ public class tests {
 	    			
 	    				if(split[textpos]!=""){
 	    					
-	    					split[textpos]=split[textpos].replaceAll("�","'");
+	    					split[textpos]=split[textpos].replaceAll("�","'");
 	    					//split[textpos]=split[textpos].replaceAll('(', ' ');
 	    					//split[textpos]=split[textpos].replaceAll(")", "");
 	    					//System.out.println(split[textpos]);
