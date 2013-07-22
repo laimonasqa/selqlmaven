@@ -258,22 +258,38 @@ public class tests {
 	    		System.out.println("Register finded");
 	    		driver.findElement(By.xpath(link)).click();
 	    		
-	    		System.out.println("Hola");
+	    		//List<WebElement> emailerror = driver.findElements(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]"));
+	    		
+	    		//String genmail="Daniel@hh.com";
+	    		String genmail="Daniel"+rand.nextInt(100000)+"@gg.com";
+	    		driver.findElement(By.xpath(email)).clear(); 
+	    		driver.findElement(By.xpath(email)).sendKeys(genmail);
+	    		
+	    		while(driver.findElement(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]")).isDisplayed()){ //Check if the e-mail is already registered
+	    		
+	    		    			
+	    			genmail="Daniel"+rand.nextInt(100000)+"@gg.com";
+	    			driver.findElement(By.xpath(email)).clear(); 
+		    		driver.findElement(By.xpath(email)).sendKeys(genmail);
+		    		driver.findElement(By.xpath(lname)).clear(); 
+		    		driver.findElement(By.xpath(lname)).sendKeys("Prado");
+	    			//emailerror = driver.findElements(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]"));
+	    			System.out.println("Email already registered");
+	    		}
 	    		
 	    		driver.findElement(By.xpath(fname)).clear(); 
 	    		driver.findElement(By.xpath(fname)).sendKeys("Daniel");
 	    		driver.findElement(By.xpath(lname)).clear(); 
 	    		driver.findElement(By.xpath(lname)).sendKeys("Prado");
 	    		
-	    		String genmail="Daniel"+rand.nextInt(100000)+"@gg.com";
-	    		driver.findElement(By.xpath(email)).clear(); 
-	    		driver.findElement(By.xpath(email)).sendKeys(genmail);
+	    		
+	    		
 	    		
 	    		//driver.findElement(By.xpath(day))
 	    		Select daydrop = new Select(driver.findElement(By.xpath(day)));
+  		
 	    		//daydrop.deselectAll();
 	    		daydrop.selectByVisibleText("18");
-	    		
 	    		Select monthdrop = new Select(driver.findElement(By.xpath(month)));
 	    		//daydrop.deselectAll();
 	    		monthdrop.selectByVisibleText("Jun");
@@ -284,8 +300,28 @@ public class tests {
 	    		driver.findElement(By.xpath(next)).click();
 	    		
 	    		String genlogin="mrt_test"+rand.nextInt(9999);
+	    		//genlogin="okbingo7";
 	    		driver.findElement(By.xpath(login)).clear(); 
 	    		driver.findElement(By.xpath(login)).sendKeys(genlogin);
+	    		
+	    		driver.findElement(By.xpath(password)).clear(); 
+	    		//driver.findElement(By.xpath(password)).sendKeys("111111");
+	    		
+	    		
+	    		while(driver.findElement(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]")).isDisplayed()){ //Check if the isername is already in use
+		    		
+	    			
+	    		
+	    			genlogin="mrt_test"+rand.nextInt(9999);
+	    			//genlogin="okbingo7";
+	    			driver.findElement(By.xpath(login)).clear(); 
+		    		driver.findElement(By.xpath(login)).sendKeys(genlogin);
+		    		driver.findElement(By.xpath(password)).clear(); 
+		    		//driver.findElement(By.xpath(lname)).sendKeys("111111");
+	    			//emailerror = driver.findElements(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]"));
+	    			System.out.println("Username already registered");
+	    			    		
+	    		}
 	    		
 	    		driver.findElement(By.xpath(password)).clear(); 
 	    		driver.findElement(By.xpath(password)).sendKeys("111111");
@@ -323,8 +359,8 @@ public class tests {
 	    		
 	    		stat3.executeUpdate("insert into testuser(username,email,level) values('" + genlogin + "','"+genmail+"','1')");
 	    		
-	    		System.out.println("User " + genlogin + " with email "+ genmail + "succesfully registered as level 1 user");
-	    		result=result+"<p>USER="+genlogin+"----"+"E-Mail"+genmail+"-------"+"Level=1<p>-------Succesfully Registered";
+	    		System.out.println("User " + genlogin + " with email "+ genmail + " succesfully registered as level 1 user");
+	    		result=result+"<p>USER="+genlogin+"----"+"E-Mail="+genmail+"-------"+"Level=1<p>-------Succesfully Registered";
 	    		
 	    		File file=new File("report1.htm");
 	    		FileWriter write = new FileWriter(file,true);
