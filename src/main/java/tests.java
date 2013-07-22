@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -67,7 +68,8 @@ public class tests {
 		String tkind;
 		String tid;
 		
-		File file=new File("report1.htm");
+		new SimpleDateFormat ("dd.MM.yyyy.hh.mm.ss");
+		File file = new File("report"+lt.format(date)+".html");
 		File file2=new File("repor.txt");
 		file.delete();
 		file2.delete();
