@@ -109,6 +109,12 @@ public class tests {
 		driver = new FirefoxDriver();
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    driver.get(baseUrl);
+	    try{
+	    	driver.switchTo().alert().accept();
+	    }catch (Exception e){  //Sometimes a pop up appears when launching site
+	    	System.out.println(e);
+	    }
+	    
 		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 		
 		//System.out.println(rs.getRow());
@@ -176,7 +182,7 @@ public class tests {
   
 	public void l1test(String testid) throws Exception{
 		
-		String link,fname,lname,email,day,month,year,next,eighteen,accept,login,password,fun,realbutton;
+		String link,fname,lname,email,day,month,year,next,eighteen,accept,login,password,fun,realbutton,screen;
 		boolean success=true;
 		int find=0;
 		
@@ -227,6 +233,7 @@ public class tests {
 		fun=fun.replaceAll("¬","'");
 		realbutton=l1rs.getString("realbutton");
 		realbutton=realbutton.replaceAll("¬","'");
+		screen="//div[@id='nicknameDialog']/form[@id='nicknameform']/p[@id='nicknameform_txt']/input[@id='nicknameform_input']";
 		
 		//System.out.println(link + "\n"+fname+ "\n"+lname+ "\n"+email+ "\n"+day+ "\n"+month+ "\n"+year+ "\n"+next+ "\n"+eighteen+ "\n"+accept+ "\n"+login+ "\n"+password+ "\n"+fun+ "\n"+realbutton);
 
@@ -287,6 +294,29 @@ public class tests {
 	    		driver.findElement(By.xpath(accept)).click();
 	    		
 	    		driver.findElement(By.xpath(fun)).click();
+	    		
+	    		
+	    		String enterbutton="/html/body/div[@id='nicknameDialog']/form[@id='nicknameform']/p[@id='nicknameform_txt']/input[@id='nicknameform_bt']";
+	    		
+	    		try{
+	    			
+	    			driver.findElement(By.xpath(enterbutton)).click(); //handle if a message appears vefore screen name
+	    		}catch (Exception e){
+	    			
+	    			System.out.println(e);
+	    		}
+	    		
+	    		try{
+	    			String screenname=genlogin.replace("mrt_", "");
+	    			
+	    			driver.findElement(By.xpath(screen)).clear(); 
+		    		driver.findElement(By.xpath(screen)).sendKeys(screenname); //Handle Screen name
+		    		driver.findElement(By.xpath(enterbutton)).click();
+	    		}catch (Exception e){
+	    			
+	    			System.out.println("No screen name required");
+	    		}
+	    		
 	    		
 	    		
 	    		//System.out.println("User " + genlogin + " with email "+ genmail + " succesfully registered as level 1 user");
