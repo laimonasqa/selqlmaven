@@ -72,7 +72,7 @@ public class tests {
 		
 		Date date = new Date();
 		SimpleDateFormat lt = new SimpleDateFormat ("dd.MM.yyyy.hh.mm.ss");
-		File file = new File("report"+lt.format(date)+".html");
+		File file = new File("reports/"+lt.format(date)+".html");
 		File file2=new File("repor.txt");
 		file.delete();
 		file2.delete();
