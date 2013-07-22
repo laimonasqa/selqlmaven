@@ -54,6 +54,7 @@ public class tests {
 	public static ResultSet ss=null;
 	public static ResultSet ns=null;
 	public static ResultSet l1rs=null;
+	public long timesta=new Date().getTime()/1000;
 	
 	
 	public static Statement stat=null;
@@ -76,8 +77,11 @@ public class tests {
 		File file2=new File("repor.txt");
 		file.delete();
 		file2.delete();
-		System.out.println(new Timestamp(date.getTime()));
+		//System.out.println(new Timestamp(date.getTime()));
 		
+		System.out.println(timesta);
+		timesta=timesta%1000000000;
+		System.out.println(timesta);
 		try{
 			
 			
@@ -271,14 +275,15 @@ public class tests {
 	    		//List<WebElement> emailerror = driver.findElements(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]"));
 	    		
 	    		//String genmail="Daniel@hh.com";
-	    		String genmail="Daniel"+rand.nextInt(100000)+"@gg.com";
+	    		String genmail="Daniel"+timesta+"@gg.com";
 	    		driver.findElement(By.xpath(email)).clear(); 
 	    		driver.findElement(By.xpath(email)).sendKeys(genmail);
 	    		
 	    		while(driver.findElement(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]")).isDisplayed()){ //Check if the e-mail is already registered
 	    		
 	    		    			
-	    			genmail="Daniel"+rand.nextInt(100000)+"@gg.com";
+	    			//genmail="Daniel"+rand.nextInt(100000)+"@gg.com";
+	    			genmail="Daniel"+timesta+"@gg.com";
 	    			driver.findElement(By.xpath(email)).clear(); 
 		    		driver.findElement(By.xpath(email)).sendKeys(genmail);
 		    		driver.findElement(By.xpath(lname)).clear(); 
@@ -309,7 +314,7 @@ public class tests {
 	    		
 	    		driver.findElement(By.xpath(next)).click();
 	    		
-	    		String genlogin="mrt_test"+rand.nextInt(9999);
+	    		String genlogin="mrt"+timesta;
 	    		//genlogin="okbingo7";
 	    		driver.findElement(By.xpath(login)).clear(); 
 	    		driver.findElement(By.xpath(login)).sendKeys(genlogin);
@@ -322,7 +327,8 @@ public class tests {
 		    		
 	    			
 	    		
-	    			genlogin="mrt_test"+rand.nextInt(9999);
+	    			//genlogin="mrt_test"+rand.nextInt(9999);
+	    			genlogin="mrt"+timesta;
 	    			//genlogin="okbingo7";
 	    			driver.findElement(By.xpath(login)).clear(); 
 		    		driver.findElement(By.xpath(login)).sendKeys(genlogin);
