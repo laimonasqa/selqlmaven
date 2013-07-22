@@ -9,7 +9,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -68,11 +70,13 @@ public class tests {
 		String tkind;
 		String tid;
 		
-		new SimpleDateFormat ("dd.MM.yyyy.hh.mm.ss");
+		Date date = new Date();
+		SimpleDateFormat lt = new SimpleDateFormat ("dd.MM.yyyy.hh.mm.ss");
 		File file = new File("report"+lt.format(date)+".html");
 		File file2=new File("repor.txt");
 		file.delete();
 		file2.delete();
+		System.out.println(new Timestamp(date.getTime()));
 		
 		try{
 			
@@ -167,12 +171,16 @@ public class tests {
 		//write.write(header);
     	//write.write("<p>"+result+"<p>");
     	//write.write(footer);
-    	write.close();
+    	write.write(result);
+		write.close();
 		ls.close();
 		rs.close();
 		con.close();
 		Desktop.getDesktop().open(file);
 		//Desktop.getDesktop().open(file2);
+		
+		
+
 		driver.close();
 		driver.quit();
 			
@@ -364,10 +372,7 @@ public class tests {
 	    		System.out.println("User " + genlogin + " with email "+ genmail + " succesfully registered as level 1 user");
 	    		result=result+"<p>USER="+genlogin+"----"+"E-Mail="+genmail+"-------"+"Level=1<p>-------Succesfully Registered";
 	    		
-	    		File file=new File("report1.htm");
-	    		FileWriter write = new FileWriter(file,true);
-	    		write.write(result);
-	    		write.close();
+	    		
 	    		//driver.findElement(By.xpath(month)).selectByVisibleText("jun");
 	    		
 	    		//driver.findElement(By.xpath(year)).selectByVisibleText("1977");
