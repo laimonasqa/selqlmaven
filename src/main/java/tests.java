@@ -54,6 +54,7 @@ public class tests {
 	public static ResultSet ss=null;
 	public static ResultSet ns=null;
 	public static ResultSet l1rs=null;
+	public static ResultSet l1rs2=null;
 	public long timesta=new Date().getTime()/1000;
 	
 	
@@ -196,7 +197,9 @@ public class tests {
   
 	public void l1test(String testid) throws Exception{
 		
-		String link,fname,lname,email,day,month,year,next,eighteen,accept,login,password,fun,realbutton,screen;
+		String fname,lname,email,day,month,year,next,eighteen,accept,login,password,repassword,fun,realbutton,screen;
+		int count=0;
+		
 		boolean success=true;
 		int find=0;
 		
@@ -215,12 +218,48 @@ public class tests {
 				}finally{	
 		
 		stat3= con.createStatement();
+		stat4=con.createStatement();
 		//System.out.println(ls.getString("testkind"));
 		l1rs= stat3.executeQuery("select * from l1test where testid='"+testid+"'");
 		l1rs.first();
+		l1rs2= stat4.executeQuery("select tofind from linktofind where testid='"+testid+"'");
 		
-		link=l1rs.getString("link");
-		link=link.replaceAll("¬","'");
+		
+		
+		if(l1rs2 !=null){
+			
+			l1rs2.beforeFirst();
+			l1rs2.last();
+			count=l1rs2.getRow(); }
+		
+		String[] link= new String[count];
+		
+		System.out.println(count);
+		
+		if(count>=1){
+		
+		
+			int row=0;
+			
+			//System.out.println(row);
+			l1rs2.beforeFirst();
+			
+			while(l1rs2.next()){
+				
+				link[row]=l1rs2.getString("tofind");				
+				link[row]=link[row].replaceAll("¬","'");
+				System.out.println(link[row]);
+				row=row+1;
+			}
+			
+		}else{
+			
+			link[0]=l1rs.getString("link");
+			link[0]=link[0].replaceAll("¬","'");
+		}
+		
+		
+		
 		fname=l1rs.getString("fname");
 		fname=fname.replaceAll("¬","'");
 		lname=l1rs.getString("lname");
@@ -243,6 +282,8 @@ public class tests {
 		login=login.replaceAll("¬","'");
 		password=l1rs.getString("password");
 		password=password.replaceAll("¬","'");
+		repassword=l1rs.getString("repassword");
+		repassword=repassword.replaceAll("¬","'");
 		fun=l1rs.getString("fun");
 		fun=fun.replaceAll("¬","'");
 		realbutton=l1rs.getString("realbutton");
@@ -251,27 +292,45 @@ public class tests {
 		
 		//System.out.println(link + "\n"+fname+ "\n"+lname+ "\n"+email+ "\n"+day+ "\n"+month+ "\n"+year+ "\n"+next+ "\n"+eighteen+ "\n"+accept+ "\n"+login+ "\n"+password+ "\n"+fun+ "\n"+realbutton);
 
-		try {
+		int z=0;
+		System.out.println(z);
+		do{
 			
-			success=true;
-			driver.findElement(By.xpath(link));
+			System.out.println(z+"======"+count);
+			try {
 			
-	    } catch (NoSuchElementException e1){
+				
+				success=true;
+				System.out.println(link[z]);
+				System.out.println(z);
+				driver.findElement(By.xpath(link[z]));
+				
+				
+				
+			} catch (NoSuchElementException e1){
 	    		
-	    	success=false;					//Control different spelling for Contact Us Link
-	    	System.out.println("Register Link not found");	
+				success=false;					//Control different spelling for Contact Us Link
+				if(z==count){
+				System.out.println("Register Link not found");}	
 	    		//result=(result + "<p><FONT COLOR="+(char)34+"red"+(char)34+">"+ss.getString("tofind")+" Not Finded</FONT><p>");} 
 	       		//If no Contact Us 
 	    	
-	    } finally{
+			} finally{
 	    	
-	    	if (success & find==0){
+				if (success & find==0){
 	    		
 	    		Random rand = new Random();
 	    		
 	    		System.out.println("Register finded");
-	    		driver.findElement(By.xpath(link)).click();
+	    		try{
+	    		driver.findElement(By.xpath(link[z])).click();
+	    		System.out.println("Register Clicked");
+	    		}catch(Exception e){
+	    			System.out.println(e);
+	    			success=false;
+	    		}
 	    		
+	    		if (success){
 	    		//List<WebElement> emailerror = driver.findElements(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]"));
 	    		
 	    		//String genmail="Daniel@hh.com";
@@ -304,13 +363,16 @@ public class tests {
 	    		Select daydrop = new Select(driver.findElement(By.xpath(day)));
   		
 	    		//daydrop.deselectAll();
-	    		daydrop.selectByVisibleText("18");
+	    		//daydrop.selectByVisibleText("18");
+	    		daydrop.selectByIndex(18);
 	    		Select monthdrop = new Select(driver.findElement(By.xpath(month)));
 	    		//daydrop.deselectAll();
-	    		monthdrop.selectByVisibleText("Jun");
+	    		//monthdrop.selectByVisibleText("Jun");
+	    		monthdrop.selectByIndex(6);
 	    		Select yeardrop = new Select(driver.findElement(By.xpath(year)));
 	    		//daydrop.deselectAll();
-	    		yeardrop.selectByVisibleText("1977");
+	    		//yeardrop.selectByVisibleText("1977");
+	    		yeardrop.selectByIndex(10);
 	    		
 	    		driver.findElement(By.xpath(next)).click();
 	    		
@@ -341,6 +403,14 @@ public class tests {
 	    		
 	    		driver.findElement(By.xpath(password)).clear(); 
 	    		driver.findElement(By.xpath(password)).sendKeys("111111");
+	    		
+	    		try{ //In case that the site have a Retype Password
+	    			
+	    			driver.findElement(By.xpath(repassword)).clear(); 
+		    		driver.findElement(By.xpath(repassword)).sendKeys("111111");
+	    		}catch(Exception e){
+	    			System.out.println(e);
+	    		}
 	    		
 	    		driver.findElement(By.xpath(eighteen)).click();
 	    		driver.findElement(By.xpath(accept)).click();
@@ -389,9 +459,11 @@ public class tests {
 
 	    		
 	    	}
+				}}
 		//driver.close();
 		//driver.quit();
-	    }
+			z=z+1;
+	    }while(z!=count);
 	}}
 	
 	
