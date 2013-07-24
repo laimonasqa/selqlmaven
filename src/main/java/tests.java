@@ -56,7 +56,9 @@ public class tests {
 	public static ResultSet ns=null;
 	public static ResultSet l1rs=null;
 	public static ResultSet l1rs2=null;
+	public static ResultSet l1rs3=null;
 	public long timesta=new Date().getTime()/1000;
+	public String batchid; 
 	
 	
 	public static Statement stat=null;
@@ -69,7 +71,7 @@ public class tests {
 	
 	public void readdatabase() throws Exception {
 		
-		String batchid; 
+		
 		String tkind;
 		String tid;
 		
@@ -228,6 +230,46 @@ public class tests {
 
 	}
 	
+	public void fieldvalidation (String xpath, String invchars, String testid) throws Exception{
+		
+		
+		//System.out.println(xpath+"    "+invchars+"    "+testid);
+		
+		boolean succesful=true;
+		result=result+"<p><h3>" + testid + " Field Validation</h3></p><p></p>";
+		String[] charstouse = new String[invchars.length()];
+		String character="";
+		charstouse=invchars.split("¬");
+		
+		for(int x=0;x<charstouse.length;x++){
+			
+			character="";
+			character=character+(char)Integer.parseInt(charstouse[x]);
+			driver.findElement(By.xpath(xpath)).clear();
+			driver.findElement(By.xpath(xpath)).sendKeys(character);
+			if(x<=0){driver.findElement(By.xpath(xpath)).sendKeys(Keys.TAB);}
+			
+			
+			
+			if(!driver.findElement(By.xpath("//div[@class='regerrors']")).isDisplayed()){
+				
+				
+				succesful=false;
+				result=result+"<p>Character ==>" + (char)Integer.parseInt(charstouse[x]) +"<== has failed validation on TEST " + testid +"</p>";
+				System.out.println((char)Integer.parseInt(charstouse[x])+" Failed to verify");
+				
+			}
+			
+					
+		}
+		
+		if(succesful){
+			
+			result=result+"<p>Field validation OK</p><p>------------</p>";
+			
+		}
+	}
+	
 	public void l1test(String testid) throws Exception{
 		
 		String fname,lname,email,day,month,year,next,eighteen,accept,login,password,repassword,fun,realbutton,screen;
@@ -236,22 +278,24 @@ public class tests {
 		boolean success=true;
 		int find=0;
 		
-			try{
+			//try{
 			
 				
-				Class.forName("com.mysql.jdbc.Driver");
+				//Class.forName("com.mysql.jdbc.Driver");
 			
 			
-				con=DriverManager.getConnection("jdbc:mysql://"+servername+"/"+db, username, pass); 
-				}catch(ClassNotFoundException e){
-					System.out.println("Class Not Found: "+e.getMessage());
+				//con=DriverManager.getConnection("jdbc:mysql://"+servername+"/"+db, username, pass); 
+				//}catch(ClassNotFoundException e){
+					//System.out.println("Class Not Found: "+e.getMessage());
 						
-				}catch(SQLException e){
-					System.out.println(e.getMessage());
-				}finally{	
+				//}catch(SQLException e){
+					//System.out.println(e.getMessage());
+	//			}finally{	
 		
 		stat3= con.createStatement();
 		stat4=con.createStatement();
+		stat=con.createStatement();
+		
 		//System.out.println(ls.getString("testkind"));
 		l1rs= stat3.executeQuery("select * from l1test where testid='"+testid+"'");
 		l1rs.first();
@@ -352,7 +396,7 @@ public class tests {
 	    	
 				if (success & find==0){
 	    		
-	    		Random rand = new Random();
+	    		//Random rand = new Random();
 	    		
 	    		System.out.println("Register finded");
 	    		try{
@@ -369,6 +413,31 @@ public class tests {
 	    		//List<WebElement> emailerror = driver.findElements(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]"));
 	    		
 	    		//String genmail="Daniel@hh.com";
+	    		
+	    		String txtxpath;
+	    		l1rs3= stat.executeQuery("select xpath,kind,value,testid from validation where position='l1s1'");
+	    		
+	    		
+	    		if(l1rs3 !=null){
+	    			
+	    			
+	    			l1rs3.beforeFirst();
+	    			
+	    			while(l1rs3.next()){
+	    				
+	    				if(l1rs3.getString("kind").equals("text")){
+	    					
+	    					txtxpath=l1rs3.getString("xpath");
+	    					txtxpath=txtxpath.replaceAll("¬","'");
+	    					//System.out.println(l1rs3.getString("xpath"));
+	    					fieldvalidation(txtxpath,l1rs3.getString("value"),l1rs3.getString("testid"));
+	    				}
+	    			}
+	    			
+	    		
+	    		
+	    		}
+	    			
 	    		String genmail="Daniel"+timesta+"@gg.com";
 	    		driver.findElement(By.xpath(email)).clear(); 
 	    		driver.findElement(By.xpath(email)).sendKeys(genmail);
@@ -507,7 +576,9 @@ public class tests {
 		//driver.quit();
 			z=z+1;
 	    }while(z!=count);
-	}}
+//	}
+	
+}
 	
 	
 	public void single(String testid) throws Exception{
