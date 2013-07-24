@@ -24,6 +24,7 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 
@@ -115,7 +116,9 @@ public class tests {
 		rs= stat.executeQuery("select * from batch where batchid='"+batchid+"'");
 		//System.out.println(rs.getString("testid"));
 		rs.first();
-		baseUrl=(rs.getString("url"));
+		String url=rs.getString("url");
+		url= url.replace("http://", "http://4646:4646@");
+		baseUrl=(url);
 		//System.out.println(rs.getString("url"));
 		driver = new FirefoxDriver();
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -195,6 +198,36 @@ public class tests {
 		
 	//}
   
+	
+	public void sendkeys() throws Exception{
+		
+		int fortysix[] = { KeyEvent.VK_4, KeyEvent.VK_6, KeyEvent.VK_4,
+				 KeyEvent.VK_6};
+		
+		Robot sendk = new Robot();
+		int i=0;
+		
+		for(i=0;i<fortysix.length;i++){
+		
+			sendk.keyPress(fortysix[i]);
+		
+		}
+		
+		sendk.keyPress(KeyEvent.VK_TAB);
+		
+		for(i=0;i<fortysix.length;i++){
+			
+			sendk.keyPress(fortysix[i]);
+		
+		}
+		
+		sendk.keyPress(KeyEvent.VK_ENTER);
+		
+		System.out.println("Hello");
+		
+
+	}
+	
 	public void l1test(String testid) throws Exception{
 		
 		String fname,lname,email,day,month,year,next,eighteen,accept,login,password,repassword,fun,realbutton,screen;
@@ -325,6 +358,8 @@ public class tests {
 	    		try{
 	    		driver.findElement(By.xpath(link[z])).click();
 	    		System.out.println("Register Clicked");
+	    		sendkeys();
+	    		
 	    		}catch(Exception e){
 	    			System.out.println(e);
 	    			success=false;
@@ -428,6 +463,7 @@ public class tests {
 	    			System.out.println(e);
 	    		}
 	    		
+	    		
 	    		try{
 	    			String screenname=genlogin.replace("mrt_", "");
 	    			
@@ -440,13 +476,20 @@ public class tests {
 	    		}
 	    		
 	    		
+	    		//String currentURL=driver.getCurrentUrl();
+    			
+	    		if(driver.getPageSource().contains(genlogin)){
+    				//System.out.println("User " + genlogin + " with email "+ genmail + " succesfully registered as level 1 user");
 	    		
-	    		//System.out.println("User " + genlogin + " with email "+ genmail + " succesfully registered as level 1 user");
+    				stat3.executeUpdate("insert into testuser(username,email,level) values('" + genlogin + "','"+genmail+"','1')");
 	    		
-	    		stat3.executeUpdate("insert into testuser(username,email,level) values('" + genlogin + "','"+genmail+"','1')");
-	    		
-	    		System.out.println("User " + genlogin + " with email "+ genmail + " succesfully registered as level 1 user");
-	    		result=result+"<p>USER="+genlogin+"----"+"E-Mail="+genmail+"-------"+"Level=1<p>-------Succesfully Registered";
+    				System.out.println("User " + genlogin + " with email "+ genmail + " succesfully registered as level 1 user");
+    				result=result+"<p>USER="+genlogin+"----"+"E-Mail="+genmail+"-------"+"Level=1<p>-------Succesfully Registered";
+    				
+    			}else{
+    				
+    				result=result+"<p>Something Fails in L1 registration<p>";
+    			}
 	    		
 	    		
 	    		//driver.findElement(By.xpath(month)).selectByVisibleText("jun");
