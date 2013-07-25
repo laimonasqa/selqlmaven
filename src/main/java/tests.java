@@ -85,7 +85,6 @@ public class tests {
 	
 	public void readdatabase() throws Exception {
 		
-		
 		String tkind;
 		String tid;
 		
@@ -305,9 +304,9 @@ public class tests {
 			
 			character="";
 			character=character+(char)Integer.parseInt(charstouse[x]);
-			driver.findElement(By.xpath(xpath)).clear();
-			driver.findElement(By.xpath(xpath)).sendKeys(character);
-			if(x<=0){driver.findElement(By.xpath(xpath)).sendKeys(Keys.TAB);}
+			driver.findElement(By.cssSelector(xpath)).clear();
+			driver.findElement(By.cssSelector(xpath)).sendKeys(character);
+			if(x<=0){driver.findElement(By.cssSelector(xpath)).sendKeys(Keys.TAB);}
 			
 			
 			
@@ -401,30 +400,43 @@ public class tests {
 		fname=fname.replaceAll("¬","'");
 		lname=l1rs.getString("lname");
 		lname=lname.replaceAll("¬","'");
+		System.out.println(lname);
 		email=l1rs.getString("email");
 		email=email.replaceAll("¬","'");
+		System.out.println(email);
 		day=l1rs.getString("day");
 		day=day.replaceAll("¬","'");
+		System.out.println(day);
 		month=l1rs.getString("month");
 		month=month.replaceAll("¬","'");
+		System.out.println(month);
 		year=l1rs.getString("year");
 		year=year.replaceAll("¬","'");
+		System.out.println(year);
 		next=l1rs.getString("next");
 		next=next.replaceAll("¬","'");
+		System.out.println(next);
 		eighteen=l1rs.getString("eighteen");
 		eighteen=eighteen.replaceAll("¬","'");
+		System.out.println(eighteen);
 		accept=l1rs.getString("accept");
 		accept=accept.replaceAll("¬","'");
+		System.out.println(accept);
 		login=l1rs.getString("login");
 		login=login.replaceAll("¬","'");
+		System.out.println(login);
 		password=l1rs.getString("password");
 		password=password.replaceAll("¬","'");
+		System.out.println(password);
 		repassword=l1rs.getString("repassword");
 		repassword=repassword.replaceAll("¬","'");
+		System.out.println(repassword);
 		fun=l1rs.getString("fun");
 		fun=fun.replaceAll("¬","'");
+		System.out.println(fun);
 		realbutton=l1rs.getString("realbutton");
 		realbutton=realbutton.replaceAll("¬","'");
+		System.out.println(realbutton);
 		screen="//div[@id='nicknameDialog']/form[@id='nicknameform']/p[@id='nicknameform_txt']/input[@id='nicknameform_input']";
 		
 		//System.out.println(link + "\n"+fname+ "\n"+lname+ "\n"+email+ "\n"+day+ "\n"+month+ "\n"+year+ "\n"+next+ "\n"+eighteen+ "\n"+accept+ "\n"+login+ "\n"+password+ "\n"+fun+ "\n"+realbutton);
@@ -440,7 +452,7 @@ public class tests {
 				success=true;
 				System.out.println(link[z]);
 				System.out.println(z);
-				driver.findElement(By.xpath(link[z]));
+				driver.findElement(By.cssSelector(link[z]));
 				
 				
 				
@@ -465,7 +477,7 @@ public class tests {
 	    		
 	    			
 	    			
-	    		driver.findElement(By.xpath(link[z])).click();
+	    		driver.findElement(By.cssSelector(link[z])).click();
 	    		//String linkurl = clicklink.getAttribute("href");
 	    		//linkurl=linkurl.replace("http://","https://4646:4646@");
 	    		//driver.get(linkurl);
@@ -493,32 +505,46 @@ public class tests {
 	    		System.out.println("Sigue");
 	    		System.out.println(driver.getCurrentUrl().toString());
 	    		String txtxpath;
-	    		l1rs3= stat.executeQuery("select xpath,kind,value,testid from validation where position='l1s1'");
 	    		
+	    		stat2.clearBatch();
+	    		l1rs2=stat2.executeQuery(" select testid from batch where batchid='"+ batchid +"'");
 	    		
-	    		if(l1rs3 !=null){
+	    		if (l1rs2 !=null){
 	    			
+	    			l1rs2.beforeFirst();
 	    			
-	    			l1rs3.beforeFirst();
-	    			
-	    			while(l1rs3.next()){
+	    			while(l1rs2.next()){
 	    				
-	    				if(l1rs3.getString("kind").equals("text")){
+	    			
+	    				l1rs3= stat.executeQuery("select xpath,kind,value,testid from validation where testid='"+ l1rs2.getString("testid") +"' and position='l1s1'");
+	    		
+	    		
+	    				if(l1rs3 !=null){
+	    			
+	    			
+	    					l1rs3.beforeFirst();
+	    			
+	    					while(l1rs3.next()){
+	    				
+	    						if(l1rs3.getString("kind").equals("text")){
 	    					
-	    					txtxpath=l1rs3.getString("xpath");
-	    					txtxpath=txtxpath.replaceAll("¬","'");
-	    					//System.out.println(l1rs3.getString("xpath"));
-	    					fieldvalidation(txtxpath,l1rs3.getString("value"),l1rs3.getString("testid"));
-	    				}
-	    			}
+	    							txtxpath=l1rs3.getString("xpath");
+	    							txtxpath=txtxpath.replaceAll("¬","'");
+	    							//	System.out.println(l1rs3.getString("xpath"));
+	    							fieldvalidation(txtxpath,l1rs3.getString("value"),l1rs3.getString("testid"));
+	    						}
+	    					}
 	    			
 	    		
 	    		
+	    				}
+	    				
+	    			}
 	    		}
 	    			
 	    		String genmail="Daniel"+timesta+"@gg.com";
-	    		driver.findElement(By.xpath(email)).clear(); 
-	    		driver.findElement(By.xpath(email)).sendKeys(genmail);
+	    		driver.findElement(By.cssSelector(email)).clear(); 
+	    		driver.findElement(By.cssSelector(email)).sendKeys(genmail);
 	    		System.out.println("email");
 	    		//while(driver.findElement(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]")).isDisplayed()){ //Check if the e-mail is already registered
 	    		
@@ -533,41 +559,43 @@ public class tests {
 	    			//System.out.println("Email already registered");
 	    		//}
 	    		
-	    		driver.findElement(By.xpath(fname)).clear(); 
-	    		driver.findElement(By.xpath(fname)).sendKeys("Daniel");
+	    		driver.findElement(By.cssSelector(fname)).clear(); 
+	    		driver.findElement(By.cssSelector(fname)).sendKeys("Daniel");
+	    	    //driver.findElement(By.cssSelector("input[name=\'newPlayer.firstName\']")).clear();
+	    	    //driver.findElement(By.cssSelector("input[name=\'newPlayer.firstName\']")).sendKeys("Daniel");
 	    		System.out.println("FName");
-	    		driver.findElement(By.xpath(lname)).clear(); 
-	    		driver.findElement(By.xpath(lname)).sendKeys("Prado");
+	    		driver.findElement(By.cssSelector(lname)).clear(); 
+	    		driver.findElement(By.cssSelector(lname)).sendKeys("Prado");
 	    		System.out.println("LName");
 	    		
 	    		
 	    		
 	    		//driver.findElement(By.xpath(day))
-	    		Select daydrop = new Select(driver.findElement(By.xpath(day)));
+	    		Select daydrop = new Select(driver.findElement(By.cssSelector(day)));
   		
 	    		//daydrop.deselectAll();
 	    		//daydrop.selectByVisibleText("18");
 	    		daydrop.selectByIndex(18);
 	    		System.out.println("Day");
-	    		Select monthdrop = new Select(driver.findElement(By.xpath(month)));
+	    		Select monthdrop = new Select(driver.findElement(By.cssSelector(month)));
 	    		//daydrop.deselectAll();
 	    		//monthdrop.selectByVisibleText("Jun");
 	    		monthdrop.selectByIndex(6);
 	    		System.out.println("Month");
-	    		Select yeardrop = new Select(driver.findElement(By.xpath(year)));
+	    		Select yeardrop = new Select(driver.findElement(By.cssSelector(year)));
 	    		//daydrop.deselectAll();
 	    		//yeardrop.selectByVisibleText("1977");
 	    		yeardrop.selectByIndex(10);
 	    		
-	    		driver.findElement(By.xpath(next)).click();
+	    		driver.findElement(By.cssSelector(next)).click();
 	    		
 	    		String genlogin="mrt"+timesta;
 	    		//genlogin="okbingo7";
-	    		driver.findElement(By.xpath(login)).clear(); 
-	    		driver.findElement(By.xpath(login)).sendKeys(genlogin);
+	    		driver.findElement(By.cssSelector(login)).clear(); 
+	    		driver.findElement(By.cssSelector(login)).sendKeys(genlogin);
 	    		
-	    		driver.findElement(By.xpath(password)).clear(); 
-	    		//driver.findElement(By.xpath(password)).sendKeys("111111");
+	    		driver.findElement(By.cssSelector(password)).clear(); 
+	    		//driver.findElement(by.cssSelector(password)).sendKeys("111111");
 	    		
 	    		
 	    		//while(driver.findElement(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]")).isDisplayed()){ //Check if the isername is already in use
@@ -586,28 +614,28 @@ public class tests {
 	    			    		
 	    		//}
 	    		
-	    		driver.findElement(By.xpath(password)).clear(); 
-	    		driver.findElement(By.xpath(password)).sendKeys("111111");
+	    		driver.findElement(By.cssSelector(password)).clear(); 
+	    		driver.findElement(By.cssSelector(password)).sendKeys("111111");
 	    		
 	    		try{ //In case that the site have a Retype Password
 	    			
-	    			driver.findElement(By.xpath(repassword)).clear(); 
-		    		driver.findElement(By.xpath(repassword)).sendKeys("111111");
+	    			driver.findElement(By.cssSelector(repassword)).clear(); 
+		    		driver.findElement(By.cssSelector(repassword)).sendKeys("111111");
 	    		}catch(Exception e){
 	    			System.out.println(e);
 	    		}
 	    		
-	    		driver.findElement(By.xpath(eighteen)).click();
-	    		driver.findElement(By.xpath(accept)).click();
+	    		driver.findElement(By.cssSelector(eighteen)).click();
+	    		driver.findElement(By.cssSelector(accept)).click();
 	    		
-	    		driver.findElement(By.xpath(fun)).click();
+	    		driver.findElement(By.cssSelector(fun)).click();
 	    		
 	    		
 	    		String enterbutton="/html/body/div[@id='nicknameDialog']/form[@id='nicknameform']/p[@id='nicknameform_txt']/input[@id='nicknameform_bt']";
 	    		
 	    		try{
 	    			
-	    			driver.findElement(By.xpath(enterbutton)).click(); //handle if a message appears vefore screen name
+	    			driver.findElement(By.cssSelector(enterbutton)).click(); //handle if a message appears vefore screen name
 	    		}catch (Exception e){
 	    			
 	    			System.out.println(e);
