@@ -420,6 +420,7 @@ public class tests {
 	    		
 	    		//String genmail="Daniel@hh.com";
 	    		
+	    		sendkeys();
 	    		String txtxpath;
 	    		l1rs3= stat.executeQuery("select xpath,kind,value,testid from validation where position='l1s1'");
 	    		
