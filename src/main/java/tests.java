@@ -3,6 +3,11 @@ package main.java;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.FlowLayout;
+import java.awt.event.KeyEvent;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.Robot;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,8 +29,17 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.KeyDownAction;
+import org.openqa.selenium.interactions.SendKeysAction;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
+import org.openqa.selenium.HasInputDevices;
+import org.openqa.selenium.Keyboard;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.Alert;
 
 
 
@@ -119,12 +133,43 @@ public class tests {
 		//System.out.println(rs.getString("testid"));
 		rs.first();
 		String url=rs.getString("url");
-		url= url.replace("http://", "http://4646:4646@");
+		
+		System.out.println(url);
+		if(url.contains("http://")){
+		
+				url= url.replace("http://", "https://4646:4646@");
+				
+		}else{
+			
+				url= url.replace("https://", "https://4646:4646@");
+		}
+	
+		System.out.println(url);
+		
 		baseUrl=(url);
-		//System.out.println(rs.getString("url"));
-		driver = new FirefoxDriver();
+		 //FirefoxBinary binary = new FirefoxBinary();  
+		 File firefoxProfileFolder = new 
+		 File("profile");
+		 FirefoxProfile profile = new FirefoxProfile(firefoxProfileFolder);
+		 profile.setAcceptUntrustedCertificates(true);
+		 //profile.addExtension("autoauth-2.1-fx+fn.xpi");
+		 driver = new FirefoxDriver(profile);
+		 //driver = new FirefoxDriver();
+		
+		//FirefoxProfile ffprofile = new FirefoxProfile("c:\");
+		//ffprofile.setPreference("network.automatic-ntlm-auth.trusted-uris", "stminver-demo.com");
+		//ffprofile.setPreference("network.http.phishy-userpass-length", 255);
+		//ffprofile.setAcceptUntrustedCertificates(true);
+		//ffprofile.setAssumeUntrustedCertificateIssuer(false);
+		//driver = new FirefoxDriver(ffprofile);
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	    driver.get(baseUrl);
+	    //driver.get(baseUrl);
+	    driver.navigate().to(baseUrl);
+						
+		//System.out.println(rs.getString("url"));
+		//driver = new FirefoxDriver();
+	    //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	    //driver.get(baseUrl);
 	    try{
 	    	driver.switchTo().alert().accept();
 	    }catch (Exception e){  //Sometimes a pop up appears when launching site
@@ -203,27 +248,42 @@ public class tests {
 	
 	public void sendkeys() throws Exception{
 		
-		int fortysix[] = { KeyEvent.VK_4, KeyEvent.VK_6, KeyEvent.VK_4,
-				 KeyEvent.VK_6};
+		//int fortysix[] = { KeyEvent.VK_4, KeyEvent.VK_6, KeyEvent.VK_4,
+				 //KeyEvent.VK_6};
 		
-		Robot sendk = new Robot();
-		int i=0;
+		//Robot sendk = new Robot();
+	//	int i=0;
 		
-		for(i=0;i<fortysix.length;i++){
+		//for(i=0;i<fortysix.length;i++){
 		
-			sendk.keyPress(fortysix[i]);
+			//sendk.keyPress(fortysix[i]);
 		
-		}
+		//}
 		
-		sendk.keyPress(KeyEvent.VK_TAB);
+		//sendk.keyPress(KeyEvent.VK_TAB);
 		
-		for(i=0;i<fortysix.length;i++){
+		//for(i=0;i<fortysix.length;i++){
 			
-			sendk.keyPress(fortysix[i]);
+			//sendk.keyPress(fortysix[i]);
 		
-		}
+		//}
 		
-		sendk.keyPress(KeyEvent.VK_ENTER);
+		//sendk.keyPress(KeyEvent.VK_ENTER);
+		
+		//Thread.sleep(500);
+		//Keyboard keyb = ((HasInputDevices) driver).getKeyboard();
+		//SendKeysAction send4646 = new SendKeysAction(keyb, keyReporter, "4646");
+		//KeyDownAction pressTAB = new KeyDownAction(keyb, keysEventInput, Keys.TAB);
+		//KeyDownAction pressENTER = new KeyDownAction(keyb, keysEventInput, Keys.ENTER);
+		
+		//send4646.perform();
+		//pressTAB.perform();
+		//send4646.perform();
+		//pressENTER.perform();
+		
+	
+
+		
 		
 		System.out.println("Hello");
 		
@@ -398,18 +458,26 @@ public class tests {
 	    		
 	    		//Random rand = new Random();
 	    		
-	    		System.out.println("Register finded");
-	    		try{
 	    		
+				System.out.println("Register finded");
+				
+				try{
+	    		
+	    			
+	    			
 	    		driver.findElement(By.xpath(link[z])).click();
 	    		//String linkurl = clicklink.getAttribute("href");
 	    		//linkurl=linkurl.replace("http://","https://4646:4646@");
 	    		//driver.get(linkurl);
 	    		//System.out.println(linkurl);
-	    		System.out.println("Register Clicked");
-	    		Thread.sleep(500);
-	    		sendkeys();
 	    		
+	    		
+	    		
+	    		
+	    		System.out.println("Register Clicked");
+	    		//Thread.sleep(500);
+	    		//sendkeys();
+	    			    		
 	    		}catch(Exception e){
 	    			System.out.println(e);
 	    			success=false;
@@ -420,7 +488,8 @@ public class tests {
 	    		
 	    		//String genmail="Daniel@hh.com";
 	    		
-	    		sendkeys();
+	    		
+	    		
 	    		System.out.println("Sigue");
 	    		System.out.println(driver.getCurrentUrl().toString());
 	    		String txtxpath;

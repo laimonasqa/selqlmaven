@@ -1,0 +1,430 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- COMMON META TAGS -->
+<head>
+<title>Bingo spill online med Bestbingo.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="title" CONTENT="Best Bingo - Instant Play Online Bingo: Play Bingo, Keno, Slots, and more" />
+<meta name="description" CONTENT=" Bingo spill med Best Bingo
+ er lette og morsomme å spille, spille bekvemt hjemmefra og vinn fantastiske bingopriser." />
+<meta name="keywords" CONTENT=" bingo spill online, norsk bingo sider, spille bingo, gratis bingo bonus, kontanta gevinster, internett bingo" />
+<meta name="author" content="Best Bingo" />
+<meta name="allow-search" content="yes" />
+<meta name="audience" content="all" />
+<meta name="classification" content="Online Bingo" />
+<meta name="distribution" content="global" />
+<meta name="doc-type" content="web page" />
+<meta name="language" content="en" />
+<meta name="robots" content="all" />
+
+
+
+
+<!-- COMMON META TAGS ENDS -->
+<!-- commonJS -->
+
+
+
+<!-- COMMON CSS AND JAVASCRIPT -->
+	<link rel="stylesheet" type="text/css" media="all" href="/bestnor/bingo/stylesheets/global.css" />
+	<!-- code : 111 ***	request processing scripts starts here  do not remove this -->
+		<iframe id="RSIFrame"  name="RSIFrame" style="width:0px; height:0px; border: 0px" src="/commonsys/refresh.jsp"> </iframe>
+		<script language="javascript" src="/commonsys/invoke_url.jsp"></script> 
+		<iframe id="tracking"  name="tracking" style="width:0px; height:0px; border: 0px" src=""> </iframe>
+		<iframe id="affFutureTracking"  name="affFutureTracking" style="width:0px; height:0px; border: 0px" src=""> </iframe>
+		<iframe id="tradeDoublerTracking"  name="tradeDoublerTracking" style="width:0px; height:0px; border: 0px" src=""></iframe>
+
+		<script language="JavaScript" type="text/javascript" src="/commonjs_norwegian/jscript/global.js"></script>
+		<script language="JavaScript" src="https://bingo.st-minver.com/commonsys/player_count.jsp"></script>
+		<script language="JavaScript" type="text/javascript" src="/commonjs_norwegian/jscript/bestnor/bingocommon.js"></script>
+						<script language="Javascript" type="text/javascript" src="/commonjs_norwegian/jscript/swfobject.js"></script>
+		
+	<!-- code : 111 ends here -->
+<!-- COMMON CSS AND JAVASCRIPT ENDS -->
+
+<!-- HOME PAGE JAVASCRIPT -->
+	 
+	<script src="/commonsys/account/ajax_displayuserdetails.jsp"></script>
+	 
+	<script language="JavaScript" type="text/javascript" src="/commonjs_norwegian/jscript/dynamic.js"></script>
+	<script language="javascript">
+		function openNewWindow(test,temp)
+		{
+			location.href="/bestnor/bingo/registration/registration_step1.thtml"
+		}
+	</script>	
+	<!--[if lt IE 7.]><script defer type="text/javascript" src="/commonjs_norwegian/jscript/pngfix.js"></script>
+<![endif]-->
+
+<script language=javascript type='text/javascript'> 
+function hideDiv(pass) { 
+var divs = document.getElementsByTagName('div'); 
+for(i=0;i<divs.length;i++){ 
+if(divs[i].id.match(pass)){//if they are 'see' divs 
+if (document.getElementById) // DOM3 = IE5, NS6 
+divs[i].style.display="none";// show/hide 
+else 
+if (document.layers) // Netscape 4 
+document.layers[divs[i]].display = 'none'; 
+else // IE 4 
+document.all.hideShow.divs[i].display = 'none'; 
+} 
+} 
+} 
+
+function showDiv(pass) { 
+var divs = document.getElementsByTagName('div'); 
+for(i=0;i<divs.length;i++){ 
+if(divs[i].id.match(pass)){ 
+if (document.getElementById) 
+divs[i].style.visibility="visible"; 
+else 
+if (document.layers) // Netscape 4 
+document.layers[divs[i]].display = 'visible'; 
+else // IE 4 
+document.all.hideShow.divs[i].visibility = 'visible'; 
+} 
+} 
+} 
+</script> 
+
+<script language=javascript type='text/javascript'> 
+function rhsInfo()
+{
+	try
+	{
+		if(session_id != 'null')
+		{	
+			/*document.getElementById("rhsdetails").innerHTML="<a href='javascript:showDiv('AccountDisplay')'>Show Div ACCOUNT</a><a href='javascript:hideDiv('PromoDisplay')'>Hide Div PRomo</a> "
+			document.getElementById("AccountDisplay").style.visibilty="hidden";*/
+			document.getElementById("AccountDisplay").style.visibility="visible";
+			document.getElementById("PromoDisplay").style.display="none";
+		}
+		else
+		{
+			/*document.getElementById("rhsdetails").innerHTML="<a href='javascript:hideDiv('AccountDisplay')'>Hide Div ACCOUNT</a><a href='javascript:showDiv('PromoDisplay')'>Show Div promo</a>" */
+			document.getElementById("AccountDisplay").style.display="none";
+			document.getElementById("PromoDisplay").style.visibility="visible";
+			
+							
+		
+		}
+		
+	}
+	catch(e)
+	{	
+			
+	}
+}
+</script>
+
+
+<!-- commonJS ENDS -->
+<script language="JavaScript">
+			try
+			{
+				if(session_id != "null")
+					location.href="../lobby/top-games/index.thtml";
+			}
+			catch(ignoreall)
+			{
+			}
+		</script>
+
+<script language="JavaScript" type="text/javascript" src="/commonsys/cmslet/getstaticfiles"></script>
+<!-- CUSTOM REGISTRATION HEAD -->
+
+
+
+<link rel="stylesheet" type="text/css" media="all" href="../stylesheets/custom_registration/custom_registration.css" />
+
+
+<!-- CUSTOM REGISTRATION HEAD ENDS -->
+
+</head>
+<body onload="rhsInfo()">
+<div id="wrapper">
+  <div class="blwrapper">
+    <div class="brwrapper">
+      <div class="tlwrapper">
+        <div class="trwrapper">
+          <!-- COMMON HEADER -->
+          
+          
+          
+          
+					
+					
+					
+					<!-- COMMON HEADER -->
+				<div id="header">
+	 				<div id="companyident"><a href="/bestnor/bingo/home/"><img src="/bestnor/bingo/images/inv.gif" width="320" border="0" height="109" alt="" /></a></div>
+					<br/><br/>
+                    <table width="225" height="70"  border="0" align="right" cellpadding="0" cellspacing="0" id="stats">
+          <tr> <td colspan="2" class="statstitle"><div align="left">
+            <p><font color="000"> <strong>Antal bingospelare online:</strong></font> 
+              <script language="JavaScript">writeStatsOfBingo();</script>
+               </td>                     
+          </tr>
+      		</table>
+                    
+                    
+				  <div id="loginbar" align="left">	
+				  		<!-- JAVASCRIPT FILE COMMON -->
+							<!-- code : 222 starts here -->
+								<script language="javascript">
+									commonHeader();
+								</script>
+							<!-- code : 222 ends here -->
+						<!-- JAVASCRIPT FILE COMMON ENDS -->
+													
+                            
+ <div id="tpnavlang"><a onfocus="this.blur();" href="/bestbingose/bingo/home/"><img border="0" alt="Swedish Site" src="/bestnor/bingo/images/im_flag_se.gif" class="flag"/></a><a onfocus="this.blur();" href="/bestnor/bingo/home/"><img border="0" src="/bestnor/bingo/images/im_flag_no.gif" class="flag"/></a><a onfocus="this.blur();" href="/bestbingouk/bingo/home/"><img border="0" alt="UK Site" src="/bestnor/bingo/images/uk.gif" class="flag"/></a></div>
+				  </div>
+
+
+
+
+
+				<div id="loginbar2" align="right">	
+	<div id="tpnav"><a href="/bestnor/bingo/corporate/about-us/16708/om-oss.thtml" class="header" onfocus="this.blur();">Om Oss</a> | <a href="/bestnor/bingo/corporate/help/15379/hjelp.thtml" class="header" onfocus="this.blur();">Hjelp</a> | <a href="/bestnor/bingo/corporate/contact-us/15382/kontakt-oss.thtml" class="header" onfocus="this.blur();">Kontakt Oss</a> | <a href="/bestnor/bingo/sitemap/" class="header" onfocus="this.blur();">Oversikt</a></div>				</div>
+				  				
+				</div>
+				
+				
+				
+								
+				
+			<!-- COMMON HEADER ENDS -->
+
+
+
+
+
+
+
+
+
+
+          
+          
+          <!-- COMMON HEADER ENDS -->
+          <!-- PAGE LAYOUT STARTS -->
+          <div id="main">
+            <div id="main1">
+              <div id="main2">
+                <!-- MIDDLE SECTION -->
+                    <!-- EDIT CONTENT -->
+        <!-- CUSTOM REGISTRATION -->
+        <div id="middleFull">
+          <div id="middleFullTop"></div>
+          <div id="middleFullMiddle">
+            <div id="registration">
+              <div id="registration_live_help">
+                <!--<a href="javascript:popUp2('http://livechat.stenodoc.com/cgi-local/start.cgi/apps/livehelp/index.html?gids=Bingo&amp;label=NOR&amp;uid=UserName')"><img id="registration_live_help_image" src="../images/livehelp_big.jpg" alt="Live hjelp" border="0" /></a>-->
+                
+				
+				
+				<div class="regLiveHelp"> 
+  <!-- BEGIN LivePerson Button Code --> 
+  <span id="lpButDivID-1321359464988"></span> 
+  <script type="text/javascript" charset="UTF-8" src="https://server.iad.liveperson.net/hc/16155947/?cmd=mTagRepstate&site=16155947&buttonID=26&divID=lpButDivID-1321359464988&bt=3&c=1"></script> 
+  <!-- END LivePerson Button code --> 
+</div>
+								
+				 
+
+  				
+				
+				
+				<!-- BEGIN LivePerson Monitor. --> 
+<script language='javascript'> var lpMTagConfig = {'lpServer' : "server.iad.liveperson.net",'lpNumber' : "16155947",'lpProtocol' : (document.location.toString().indexOf('https:')==0) ? 'https' : 'http'}; function lpAddMonitorTag(src){if(typeof(src)=='undefined'||typeof(src)=='object'){src=lpMTagConfig.lpMTagSrc?lpMTagConfig.lpMTagSrc:'/hcp/html/mTag.js';}if(src.indexOf('http')!=0){src=lpMTagConfig.lpProtocol+"://"+lpMTagConfig.lpServer+src+'?site='+lpMTagConfig.lpNumber;}else{if(src.indexOf('site=')<0){if(src.indexOf('?')<0)src=src+'?';else src=src+'&';src=src+'site='+lpMTagConfig.lpNumber;}};var s=document.createElement('script');s.setAttribute('type','text/javascript');s.setAttribute('charset','iso-8859-1');s.setAttribute('src',src);document.getElementsByTagName('head').item(0).appendChild(s);} if (window.attachEvent) window.attachEvent('onload',lpAddMonitorTag); else window.addEventListener("load",lpAddMonitorTag,false);</script>
+<!-- BEGIN Monitor Tracking Variables  -->
+<script type="text/javascript">
+if (typeof(lpMTagConfig) == "undefined"){ lpMTagConfig = {};}
+if (typeof(lpMTagConfig.pageVar) == "undefined"){ lpMTagConfig.pageVar = [];}
+lpMTagConfig.pageVar[lpMTagConfig.pageVar.length] = 'uid='+username;
+if (typeof(lpMTagConfig.sessionVar) == "undefined"){ lpMTagConfig.sessionVar = [];}
+lpMTagConfig.sessionVar[lpMTagConfig.sessionVar.length] = 'skill=IBN Bingo Swedish';
+</script>
+<!-- End Monitor Tracking Variables  --> 
+<!-- END LivePerson Monitor. -->
+								
+				 
+              </div>
+              <!-- content -->
+              
+              
+              <!-- Please leave these comments intact -->
+              <!-- 28987 -->
+              <!-- L1 registration text -->
+              <div id="registration_text"> <p>Bli medlem n&aring;</p><ul><br />    <li>Du f&aring;r 50 kr til &aring; pr&oslash;ve bingo for!</li><br />    <li>200% bonus p&aring; ditt f&ouml;rste innskudd upp til 2000 kr bonus!</li><br />    <li>50% bonus p&aring; ditt andre innskudd!</li><br />    <li>Gratis skeapelodd hver dag!</li><br /></ul><p> </div>
+              
+              <div id="registration_condition">Du måste vara över 18 år för att spela Bingo online.</div>
+              <div id="registration_title">Användar information</div>
+              <div id="reg1" class="ajaxbox">Din registrering genomförs nu...</div>
+              <span id="regstep1">
+              <div style="min-height:500px">
+                <div type="cmslet" service="showregistrationstep" params="configName=NORregGroup" id="regAreas"></div>
+              </div>
+              </span>
+              <div id="registration_image"></div>
+            </div>
+            <div style="clear:both; height:1px; width:500px;"></div>
+          </div>
+          <div id="middleFullBottom"></div>
+        </div>
+        <!-- CUSTOM REGISTRATION ENDS -->
+                    <!-- EDIT CONTENT ENDS-->
+                <!-- MIDDLE SECTION ENDS -->
+              </div>
+            </div>
+          </div>
+          <!-- PAGE LAYOUT STARTS ENDS -->
+          <!-- COMMON FOOTER -->
+          
+          
+          
+          <div id="footertp">
+	<a href="http://aff.stenodoc.com/affiliates/bestbingonor/home.html"><img src="/bestnor/bingo/images/bot1.gif" width="240" height="89" border="0" alt="" /></a><a href="/bestnor/bingo/corporate/about-us/16708/om-oss.thtml"><img src="/bestnor/bingo/images/bot2.gif" width="240" height="89" border="0" alt="" /></a><a href="/bestnor/bingo/corporate/contact-us/15382/kontakt-oss.thtml"><img src="/bestnor/bingo/images/bot3.gif" width="240" height="89" border="0" alt="" /></a>
+</div>
+
+<div id="footer">
+
+	
+	
+	
+	<div class="footerCopy">
+	&copy;<script language="javascript">document.write(new Date().getFullYear());</script> Spielo International (Gibraltar). All Rights Reserved
+</div>
+					
+	
+
+	<div id="footernav">
+		<a href="http://aff.stenodoc.com/affiliates/bestbingonor/home.html" target="_blank" class="footer" onfocus="this.blur();">Affiliates</a> | 
+		<a href="/bestnor/bingo/corporate/responsible-gaming/15388/ansvarsfull-spilling.thtml" class="footer" onfocus="this.blur();"> Ansvarsfull spilling</a> | 
+		<a href="/bestnor/bingo/corporate/terms-and-conditions/15391/vilkar.thtml" class="footer" onfocus="this.blur();">Vilkår</a> | 
+		<a href="/bestnor/bingo/corporate/privacy-policy/15385/personvernpolicy.thtml" class="footer" onfocus="this.blur();">Personvernpolicy</a>
+	</div>
+
+	
+	
+	
+	
+
+<ul id="creditCardsInclude">
+
+<li id="visa"><a href="javascript:NewWindow=window.open('http://www.visa.no/no.aspx','Visa','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_visa.png" title="Visa" alt="Visa"></a></li>
+
+<li id="electron"><a href="javascript:NewWindow=window.open('http://www.visa.no/no.aspx','Visa','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_electron.png" title="Electron" alt="Electron"></a></li>
+
+<li id="mastercard"><a href="javascript:NewWindow=window.open('http://www.mastercard.com/global/index.html','Mastercard','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_mastercard.png" title="Mastercard" alt="Mastercard"></a></li>
+
+<li id="maestro"><a href="javascript:NewWindow=window.open('http://www.maestrocard.com/','Maestro','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_maestro.png" title="Maestro" alt="Maestro"></a></li>
+
+<li id="banktransfer"><a onclick="return false" href="#"><img src="/commonnor_images/payment_icons/im_cc_banktransfer.png" title="Transferencia Bancaria " alt="Transferencia Bancaria "></a></li>
+
+<li id="citadel"><a href="javascript:NewWindow=window.open('https://www.mycitadel.com/','Citadel','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_citadel.png" title="citadel" alt="citadel"></a></li>
+
+<li id="moneybookers"><a href="javascript:NewWindow=window.open('http://www.moneybookers.com/app/?l=EN','Moneybookers','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_moneyb.png" title="Moneybookers" alt="Moneybookers"></a></li>
+
+<li id="skrill"><a href="javascript:NewWindow=window.open('http://www.moneybookers.com/app/?l=EN','Skrill','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_skrill.png" title="Skrill (Moneybookers)" alt="Skrill (Moneybookers)"></a></li>
+
+<li id="paypal"><a href="javascript:NewWindow=window.open('https://www.paypal.com/no/cgi-bin/webscr?cmd=_home&locale.x=no_NO','Paypal','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_paypal.png" title="Paypal" alt="Paypal"></a></li>
+
+<li id="neteller"><a href="javascript:NewWindow=window.open('http://www.neteller.com/no/','neteller','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_neteller.png" title="Neteller" alt="Neteller"></a></li>
+
+<li id="ukash"><a href="javascript:NewWindow=window.open('http://www.ukash.com/global/en/home.aspx','Ukash','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_ukash.png" title="Ukash" alt="Ukash"></a></li>
+
+<li id="paysafecard"><a href="javascript:NewWindow=window.open('http://www.paysafecard.com/no/no-paysafecard/','Paysafecard','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_paysafe.png" title="Paysafecard" alt="Paysafecard"></a></li>
+
+<li id="gambleaware"><a href="javascript:NewWindow=window.open('http://www.gambleaware.co.uk/','Gambleaware','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_gambleaware.png" title="Gambleaware" alt="Gambleaware"></a></li>
+
+<li id="gamcare"><a href="javascript:NewWindow=window.open('http://www.gamcare.org.uk/','Gamcare','scrollbars=yes','resizable=yes');winContent.focus()"><img src="/commonnor_images/payment_icons/im_cc_gamcare.png" title="Gamcare" alt="Gamcare"></a></li>
+
+<li id="rg18"><a class="tt" onclick="return false" href="#"><img src="/commonnor_images/payment_icons/18_plus.png" title="18+" alt="18+"><span class="tooltip" id="bubble18"><span class="top"></span><span class="middle">Du må være over 18 år for å kunne spille. Vi forbeholder oss retten til å kreve bevis fra alle kunder og kontoen kan stenges intil alderen har blitt bekreftet.</span><span class="bottom"></span></span></a></li>
+
+<li id="GLA"><a href="javascript:NewWindow=window.open('http://www.gibraltar.gov.gi/remotegambling','GLA','scrollbars=yes','resizable=yes');winContent.focus()" ><img src="/commonnor_images/payment_icons/GLA.png" title="Gibraltar Licensing Authority" alt="Gibraltar Licensing Authority" /></a></li>
+
+<!--
+<li id="footerlogo"><a class="tt" href="http://www.stminverltd.com" target="_blank"><img src="/commonnor_images/payment_icons/logo-stminver.png" border="0" alt="Powered by St Minver" /><span class="tooltip"><span class="top"></span><span class="middle">St Minver Limited is licensed by the Gibraltar Licensing Authority and regulated by the Gibraltar Regulatory Authority under the 'Gambling Act 2005'.</span><span class="bottom"></span></span></a></li>-->
+
+</ul>
+
+
+					
+	
+
+</div>
+
+
+
+
+<div id="G2Logo">
+	<a class="tt" href="http://www.spielog2.com" target="_blank">
+		<img src="/commonnor_images/payment_icons/logo_spielo.png" border="0" alt="Powered by Spielo International (Gibraltar)" />
+		<span class="tooltip">
+		<span class="top"></span>
+		<span class="middle">
+			Spielo International (Gibraltar) Limited <br />
+			Suite 742 Europort <br />
+			Gibraltar <br /><br />
+			har lisens fra Gibraltar Licensing Authority og reguleres i henhold til Gambling Act 2005 av Gibraltar Gambling Commissioner.
+			<br /><br />
+			Individer under 18 år får, i henhold til Gambling Act 2005, ikke delta i spillene som innehaes av lisensinnehaveren.
+		</span>
+		<span class="bottom"></span>
+		</span>
+	</a>
+</div>
+				
+
+
+
+
+
+<div class="regulatory_info">
+
+	<div class="statement">
+		Spielo International (Gibraltar) Limited forbeholder seg å leverere etisk og ansvarsfullt spillende med den høyeste standarden innen kundeservice.
+  	</div>
+
+	<div class="license">Remote Gambling License RGL 017</div>
+
+	<div class="legal_link">
+		
+		<a href="/bestnor/bingo/corporate/legal-information/29923/rettferdig-spilling.thtml">Rettferdig spilling</a>
+		
+	</div>
+</div>
+
+       
+
+
+
+          
+          
+          <!-- COMMON FOOTER ENDS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<!-- window for the privacy-->
+<script language="javascript">
+<!--
+function popUp()
+{
+	var page = "../popups/privacy-policy/";
+	var windowprops = "300,300,width=475,height=575,scrollbars=yes ,resizable=no";
+	window.open(page,"",windowprops);
+}
+//-->
+</script>
+
+<!-- code 333 ends server side requests ends here -->
+<script language="javascript" src="/commonsys/lobbyver20_75.jsp"></script>
+</html>

@@ -1,0 +1,305 @@
+var path = location.pathname;
+var partnerName  = path.split("/")[1];
+function playButton(){
+	try{
+		if(session_id == 'null'){
+
+		if(partnerName == "liinor"||partnerName == "onlinebingonor"){
+			var width="150"; 
+			var height="66";
+			}
+		else if (partnerName == "caliberbingonor"){
+			var width="78"; 
+			var height="78";
+			}		
+		else {
+			var width="165"; 
+			var height="77";
+			}
+			
+}					
+	
+		if(session_id == 'null'){
+			if (partnerName == "caliberbingonor")
+				document.write('<div id="playNowButton"><a href="'+built_url+'/bingo/registration/registration_step1.thtml"><img src="'+built_url+'/bingo/images/v2/headerPlayNow.png" width="'+width+'" height="'+height+'" border="0" alt="Spill nå" style="cursor:hand"/></a></div>');
+			else					
+			document.write('<a href="'+built_url+'/bingo/registration/registration_step1.thtml"><img src="'+built_url+'/bingo/images/bt_sign_up.gif" width="'+width+'" height="'+height+'" border="0" alt="Spill nå!" style="cursor:hand"/></a>');
+		}else{
+			if(isDynamicLobby == "true"){
+				if (partnerName == "caliberbingonor")
+					document.write('<div id="playNowButton"><a href="'+built_url+'/bingo/lobby/index.thtml"><img src="'+built_url+'/bingo/images/v2/headerPlayNow.png" width="'+width+'" height="'+height+'" border="0" alt="Spill nå" style="cursor:hand"/></a></div>');
+				else
+					document.write('<a href="'+built_url+'/bingo/lobby/index.thtml"><img src="'+built_url+'/bingo/images/bt_sign_up.gif" width="'+width+'" height="'+height+'" border="0" alt="Spill nå!" style="cursor:hand"/></a>');
+				}else{
+					if (partnerName == "caliberbingonor")
+						document.write('<div id="playNowButton"><a href="'+built_url+'/bingo/lobby/top-games/"><img src="'+built_url+'/bingo/images/v2/headerPlayNow.png" width="'+width+'" height="'+height+'" border="0" alt="Spill nå" style="cursor:hand"/></a></div>');
+					else
+						document.write('<a href="'+built_url+'/bingo/lobby/top-games/"><img src="'+built_url+'/bingo/images/bt_sign_up.gif" width="'+width+'" height="'+height+'" border="0" alt="Spill nå!" style="cursor:hand"/></a>');
+		}			
+			}
+		}catch(e){
+			if (partnerName == "caliberbingonor")
+				document.write('<div id="playNowButton"><a href="'+built_url+'/bingo/registration/registration_step1.thtml"><img src="'+built_url+'/bingo/images/v2/headerPlayNow.png" width="78" height="78" border="0" alt="Spill nå" style="cursor:hand"/></a></div>');
+			else
+				document.write('<a href="'+built_url+'/bingo/registration/registration_step1.thtml"><img src="'+built_url+'/bingo/images/bt_sign_up.gif" width="150" height="66" border="0" alt="Spill nå!" style="cursor:hand"/></a>');
+	}
+}
+
+function bingoNav(){
+	try{
+		if(session_id == 'null'){
+			if(isDynamicLobby == "true")
+			{
+				if (partnerName == "caliberbingonor")
+					document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/index1.thtml" title="Bingo og spill" ><img src="'+built_url+'/bingo/images/v2/nav_bingo.jpg" width="164" height="28" border="0"/></a></div>');
+				else
+					document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/index1.thtml" title="Bingo og spill">Bingo og spill</a></div>');
+			}
+			else
+			{
+				if (partnerName == "caliberbingonor")
+					document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/top-games/index1.thtml" title="Bingo og spill" ><img src="'+built_url+'/bingo/images/v2/nav_bingo.jpg" width="164" height="28" border="0"/></a></div>');
+				else
+					document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/top-games/index1.thtml" title="Bingo og spill">Bingo og spill</a></div>');
+			}
+		}else{
+			if(isDynamicLobby == "true")
+			{
+				if (partnerName == "caliberbingonor")
+					document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/index.thtml" title="Bingo og spill"><img src="'+built_url+'/bingo/images/v2/nav_bingo.jpg" width="164" height="28" border="0"/></a></div>');
+				else
+					document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/index.thtml" title="Lobby">Lobby</a></div>');
+			}
+			else
+			{
+				if (partnerName == "caliberbingonor")
+					document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/top-games/index.thtml" title="Bingo og spill"><img src="'+built_url+'/bingo/images/v2/nav_bingo.jpg" width="164" height="28" border="0"/></a></div>');
+				else
+					document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/top-games/index.thtml" title="Lobby">Lobby</a></div>');
+			}
+		}
+	}catch(e){
+		if(isDynamicLobby == "true"){
+			if (partnerName == "caliberbingonor")
+				document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/index1.thtml" title="Bingo og Spill"><img src="'+built_url+'/bingo/images/v2/nav_bingo.jpg" width="164" height="28" border="0"/></a></div>');
+			else
+				document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/index1.thtml" title="Bingo og spill">Bingo og spill</a></div>');
+			}
+			else{
+			if (partnerName == "caliberbingonor")
+				document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/top-games/index1.thtml" title="Bingo og Spill"><img src="'+built_url+'/bingo/images/v2/nav_bingo.jpg" width="164" height="28" border="0"/></a></div>');
+			else
+				document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/index1.thtml" title="Bingo og spill">Bingo og spill</a></div>');
+			}
+	}
+}
+
+function slotsNav(){
+	try{
+		if(session_id == 'null'){
+			if(isDynamicLobby == "true"){
+			if (partnerName == "caliberbingonor")
+				document.write('<div class="navbutton" id="navbg"><a href="/caliberbingonor/bingo/lobby/index1.thtml#lobbyTabs=tab1" title="Spilleautomater"><img src="'+built_url+'/bingo/images/v2/nav_games.jpg" width="164" height="28"  border="0"/></a></div>');
+			else
+				document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/index1.thtml#lobbyTabs=tab1" title="Spilleautomater">Spilleautomater</a></div>');
+			}
+			else{
+			if (partnerName == "caliberbingonor")
+				document.write('<div class="navbutton" id="navbg"><a href="/caliberbingonor/bingo/lobby/slots/index1.thtml" title="Spilleautomater"><img src="'+built_url+'/bingo/images/v2/nav_games.jpg" width="164" height="28"  border="0"/></a></div>');
+			else
+				document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/slots/index1.thtml" title="Spilleautomater">Spilleautomater</a></div>');
+			}
+		}else{
+			if(isDynamicLobby == "true"){
+			if (partnerName == "caliberbingonor")
+				document.write('<div class="navbutton" id="navbg"><a href="/caliberbingonor/bingo/lobby/index.thtml#lobbyTabs=tab1" title="Spilleautomater"><img src="'+built_url+'/bingo/images/v2/nav_games.jpg" width="164" height="28"  border="0"/></a></div>');
+			else
+				document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/index.thtml#lobbyTabs=tab1" title="Spilleautomater">Spilleautomater</a></div>');
+			}
+			else{
+			if (partnerName == "caliberbingonor")
+				document.write('<div class="navbutton" id="navbg"><a href="/caliberbingonor/bingo/lobby/slots/index.thtml" title="Spilleautomater"><img src="'+built_url+'/bingo/images/v2/nav_games.jpg" width="164" height="28"  border="0"/></a></div>');
+			else
+				document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/slots/index.thtml" title="Spilleautomater">Spilleautomater</a></div>');
+			}
+		}
+	}catch(e){
+		if(isDynamicLobby == "true"){
+			if (partnerName == "caliberbingonor")
+				document.write('<div class="navbutton" id="navbg"><a href="/caliberbingonor/bingo/lobby/index1.thtml#lobbyTabs=tab1" title="Spilleautomater"><img src="'+built_url+'/bingo/images/v2/nav_games.jpg" width="164" height="28"  border="0"/></a></div>');
+			else
+				document.write('<div class="navbutton" id="navbg"><a href=built_url+"/bingo/lobby/index1.thtml#lobbyTabs=tab1" title="Spilleautomater">Spilleautomater</a></div>');
+		}
+			else{
+			if (partnerName == "caliberbingonor")
+				document.write('<div class="navbutton" id="navbg"><a href="/caliberbingonor/bingo/lobby/slots/index1.thtml" title="Spilleautomater"><img src="'+built_url+'/bingo/images/v2/nav_games.jpg" width="164" height="28"  border="0"/></a></div>');
+			else
+				document.write('<div class="navbutton" id="navbg"><a href="'+built_url+'/bingo/lobby/slots/index1.thtml" title="Spilleautomater">Spilleautomater</a></div>');
+		}
+	}
+}
+
+
+function joyPlay()
+{
+	try
+	{
+		if(session_id == 'null')
+		{		
+			document.write('<img border="0" alt="Spill nå" src="'+built_url+'/bingo/images/hd_join_now.gif"/>');
+			document.write('<a href="'+built_url+'/bingo/registration/registration_step1.thtml"><img border="0" alt="Join now" src="'+built_url+'/bingo/images/bt_join_now.gif"/></a>');
+		}
+		else
+		{
+			document.write('<img border="0" alt="Bingo og spil" src="'+built_url+'/bingo/images/hdr_bingoandgames.gif"/>');
+			document.write('<a href="'+built_url+'/bingo/lobby/top-games/index.thtml"><img border="0" alt="Play Now" src="'+built_url+'/bingo/images/bt_lft_playnow.gif"/></a>');
+			
+		}
+	}
+	catch(e)
+	{
+			document.write('<img border="0" alt="Join now and play" src="'+built_url+'/bingo/images/hd_join_now.gif"/>');
+			document.write('<a href="'+built_url+'/bingo/registration/registration_step1.thtml"><img border="0" alt="Spill nå" src="'+built_url+'/bingo/images/bt_join_now.gif"/></a>');
+	}
+}
+
+function accountShow()
+{
+	try
+	{
+		if(session_id == 'null')
+		{		
+			document.write('&nbsp;');
+		}
+		else
+		{
+			
+
+document.write('<div class="blaccount"><div class="braccount"><div class="tlaccount"><div class="traccount">');
+document.write('<h2><span id="the_usernameright"></span></h2>');
+document.write('<ul>');
+document.write('<li class="nopadbold">Saldo:</li>');
+document.write('<li><span id="realbal"></span></li>');
+document.write('<li class="nopadbold">Bonus:</li>');
+document.write('<li><span id="bonbal"></span></li>');
+document.write('<li class="nopadbold">Lojalitetspoeng:</li>');
+document.write('<li><span id="loyalty"></span></li>');
+
+
+document.write('</ul>');
+document.write('<a href="javascript:checkdeposit();" class="accountbutton" onfocus="this.blur();">Innskudd</a>');
+document.write('<a href="javascript:checkwithdraw();" class="accountbutton" onfocus="this.blur();">Uttak</a>');
+document.write('<a href="javascript:checkredeem();" class="accountbutton" onfocus="this.blur();">Løs inn poeng</a>');
+if(playforcash.indexOf('true') != -1)
+	document.write('<a href="javascript:cardverify();" class="accountbutton" onfocus="this.blur();">Endre&nbsp;Betalnings-metode</a>');
+
+document.write('<a href="/commonsys/account/redeembonuscodeview.do;" class="accountbutton" onfocus="this.blur();">Innløst bonus</a>');
+document.write('</div></div></div></div>');
+//prebuy buttons 
+	document.write('<div class="blhistory"><div class="brhistory"><div class="tlhistory"><div class="trhistory">');
+			document.write('<h2>Brett</h2>');
+			document.write('<a href="javascript:popUpOpenPreOrder()" class="accountbutton" onfocus="this.blur();">Forhåndskjøpte </a>');
+			document.write('<a href="javascript:specials()" class="accountbutton" onfocus="this.blur();">Forhåndskjøpte spesialtilbud </a>');
+			document.write('</div></div></div></div>');
+
+document.write('<div class="blhistory"><div class="brhistory"><div class="tlhistory"><div class="trhistory">');
+document.write('<h2>Konto</h2>');
+document.write('<ul>');
+document.write('<li>&gt; ');
+document.write('<a href="#"  onclick=" javascript:return allTransactions(\'Deposit\');" onfocus="this.blur();focus()" class="history" id="Deposit">Innskudd</a></li>');
+document.write('<li>&gt; <a href="#" onclick=" javascript:return allTransactions(\'Withdraw\');" onfocus="this.blur();focus()" id="Withdraw" class="history">Uttak</a></li>');
+document.write('<li>&gt; <a href="#" onclick=" javascript:return allTransactions(\'Transaction\');" onfocus="this.blur();focus()" id="Transaction" class="history">Transaksjoner</a></li>');
+document.write('<li>&gt; <a href="'+built_url+'/deposit/bonushistory.html" onclick="NewWindow(this.href,\'mywin\',\'600\',\'550\',\'yes\',\'center\');return false" onfocus="this.blur();focus()" class="history">Bonushistorikk</a></li>');
+document.write('<li>&gt; <a href="'+built_url+'/deposit/game_report.html"  onclick="NewWindow(this.href,\'mywin\',\'600\',\'550\',\'yes\',\'center\');return false" onfocus="this.blur();focus()" class="history">Spillhistorikk </a></li>');
+document.write('<li>&gt;<a href="'+built_url+'/deposit/loyaltyhistory.html" onclick="NewWindow(this.href,\'mywin\',\'600\',\'550\',\'yes\',\'center\');return false" onfocus="this.blur();focus()" class="history">Loyalty History</a></li>');
+document.write('</ul>');
+document.write('<a href="'+built_url+'/bingo/account/edit_account.thtml" class="historybutton" onfocus="this.blur();">Endre konto</a>');
+document.write('</div></div></div></div>');
+
+		}
+	}
+	catch(e)
+	{
+			document.write('&nbsp;');
+			}
+}
+	
+
+function accountShow2()
+{
+	try
+	{
+		if(session_id == 'null')
+		{		
+			document.write('&nbsp;');
+		}
+		else
+		{
+document.write('<div class="account">');
+document.write('<div class="tab-top">');
+document.write('<h2>Konto</h2>');
+document.write('</div>');
+document.write('<h2><span id="the_usernameright"></span></h2>');
+document.write('<ul>');
+document.write('<li class="nopadbold">Saldo: <span id="rhs_realbal"></span></li>');
+document.write('<li class="nopadbold">Bonus: <span id="rhs_bonbal"></span></li>');
+document.write('<li class="nopadbold">Lojalitetspoeng: <span id="rhs_loyalty"></span></li>');
+document.write('</ul>');
+document.write('<a href="javascript:checkdeposit();" class="accountbutton" onfocus="this.blur();">Innskudd</a>');
+document.write('<a href="javascript:checkwithdraw();" class="accountbutton" onfocus="this.blur();">Uttak</a>');
+document.write('<a href="javascript:checkredeem();" class="accountbutton" onfocus="this.blur();">Løs inn poeng</a>');
+document.write('<a href="/commonsys/account/redeembonuscodeview.do;" class="accountbutton" onfocus="this.blur();">Innløst bonus</a>');
+
+//prebuy buttons 
+document.write('<div class="clr"></div>');
+document.write('<h2>Brett</h2>');
+document.write('<a href="javascript:popUpOpenPreOrder()" class="accountbutton" onfocus="this.blur();">Forhåndskjøpte</a>');
+document.write('<a href="javascript:specials()" class="accountbutton" onfocus="this.blur();">Forhåndskjøpte spesialtilbud </a>');
+	
+document.write('<div class="clr"></div>');
+document.write('<h2>KontoInfo</h2>');
+document.write('<ul>');
+document.write('<li>');
+document.write('<a href="#"  onclick=" javascript:return allTransactions(\'Deposit\');" onfocus="this.blur();focus()" class="history" id="Deposit">Innskudd</a></li>');
+document.write('<li><a href="#" onclick=" javascript:return allTransactions(\'Withdraw\');" onfocus="this.blur();focus()" id="Withdraw" class="history">Uttak</a></li>');
+document.write('<li><a href="#" onclick=" javascript:return allTransactions(\'Transaction\');" onfocus="this.blur();focus()" id="Transaction" class="history">Transaksjoner</a></li>');
+document.write('<li><a href="/caliberbingonornew/deposit/bonushistory.html" onclick="NewWindow(this.href,\'mywin\',\'600\',\'550\',\'yes\',\'center\');return false" onfocus="this.blur();focus()" class="history">Bonushistorikk</a></li>');
+document.write('<li><a href="/caliberbingonornew/deposit/game_report.html"  onclick="NewWindow(this.href,\'mywin\',\'600\',\'550\',\'yes\',\'center\');return false" onfocus="this.blur();focus()" class="history">Spillhistorikk</a></li>');
+document.write('<li><a href="/caliberbingonornew/deposit/loyaltyhistory.html"  onclick="NewWindow(this.href,\'mywin\',\'600\',\'550\',\'yes\',\'center\');return false" onfocus="this.blur();focus()" class="history">Lojalitetshistorikk</a></li>');
+document.write('</ul>');
+document.write('<a href="/caliberbingonornew/bingo/account/edit_account.thtml" class="historybutton" onfocus="this.blur();">Endre konto</a>');
+document.write('</div>');
+	}
+	}
+	catch(e)
+	{
+			document.write('&nbsp;');
+			}
+}
+
+function siteMapURL(className,lobbySection,label){
+	try{
+		if(isDynamicLobby == "true"){
+			if(lobbySection== 'top-games'){
+				lobbySection = 'BINGO';
+			}else if(lobbySection== 'scratch-cards'){
+				lobbySection = lobbySection.replace(/-/g,'');
+			}else{
+				lobbySection = lobbySection.replace(/-/g,' ');
+			}
+			if(session_id == 'null'){
+					document.write('<a class="'+ className +'" href="/'+ partnerName +'/bingo/lobby/index1.thtml?'+ lobbySection +'" onfocus="this.blur();">'+ label +'</a>');
+			}else{
+				document.write('<a class="'+ className +'" href="/'+ partnerName +'/bingo/lobby/index.thtml?'+ lobbySection +'" onfocus="this.blur();">'+ label +'</a>');
+			}
+		}else{
+			if(session_id == 'null'){
+				document.write('<a class="'+ className +'" href="/'+ partnerName +'/bingo/lobby/index1.thtml" onfocus="this.blur();">'+ label +'</a>');
+			}else{
+				document.write('<a class="'+ className +'" href="/'+ partnerName +'/bingo/lobby/index.thtml" onfocus="this.blur();">'+ label +'</a>');
+			}
+		}
+	}catch(e){
+					
+	}
+}
