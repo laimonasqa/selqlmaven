@@ -422,6 +422,7 @@ public class tests {
 	    		
 	    		sendkeys();
 	    		System.out.println("Sigue");
+	    		System.out.println(driver.getCurrentUrl().toString());
 	    		String txtxpath;
 	    		l1rs3= stat.executeQuery("select xpath,kind,value,testid from validation where position='l1s1'");
 	    		
@@ -449,25 +450,26 @@ public class tests {
 	    		String genmail="Daniel"+timesta+"@gg.com";
 	    		driver.findElement(By.xpath(email)).clear(); 
 	    		driver.findElement(By.xpath(email)).sendKeys(genmail);
-	    		
-	    		while(driver.findElement(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]")).isDisplayed()){ //Check if the e-mail is already registered
+	    		System.out.println("email");
+	    		//while(driver.findElement(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]")).isDisplayed()){ //Check if the e-mail is already registered
 	    		
 	    		    			
-	    			//genmail="Daniel"+rand.nextInt(100000)+"@gg.com";
-	    			genmail="Daniel"+timesta+"@gg.com";
-	    			driver.findElement(By.xpath(email)).clear(); 
-		    		driver.findElement(By.xpath(email)).sendKeys(genmail);
-		    		driver.findElement(By.xpath(lname)).clear(); 
-		    		driver.findElement(By.xpath(lname)).sendKeys("Prado");
+	    			////genmail="Daniel"+rand.nextInt(100000)+"@gg.com";
+	    			//genmail="Daniel"+timesta+"@gg.com";
+	    			//driver.findElement(By.xpath(email)).clear(); 
+		    		//driver.findElement(By.xpath(email)).sendKeys(genmail);
+		    		//driver.findElement(By.xpath(lname)).clear(); 
+		    		//driver.findElement(By.xpath(lname)).sendKeys("Prado");
 	    			//emailerror = driver.findElements(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]"));
-	    			System.out.println("Email already registered");
-	    		}
+	    			//System.out.println("Email already registered");
+	    		//}
 	    		
 	    		driver.findElement(By.xpath(fname)).clear(); 
 	    		driver.findElement(By.xpath(fname)).sendKeys("Daniel");
+	    		System.out.println("FName");
 	    		driver.findElement(By.xpath(lname)).clear(); 
 	    		driver.findElement(By.xpath(lname)).sendKeys("Prado");
-	    		
+	    		System.out.println("LName");
 	    		
 	    		
 	    		
@@ -477,10 +479,12 @@ public class tests {
 	    		//daydrop.deselectAll();
 	    		//daydrop.selectByVisibleText("18");
 	    		daydrop.selectByIndex(18);
+	    		System.out.println("Day");
 	    		Select monthdrop = new Select(driver.findElement(By.xpath(month)));
 	    		//daydrop.deselectAll();
 	    		//monthdrop.selectByVisibleText("Jun");
 	    		monthdrop.selectByIndex(6);
+	    		System.out.println("Month");
 	    		Select yeardrop = new Select(driver.findElement(By.xpath(year)));
 	    		//daydrop.deselectAll();
 	    		//yeardrop.selectByVisibleText("1977");
@@ -497,21 +501,21 @@ public class tests {
 	    		//driver.findElement(By.xpath(password)).sendKeys("111111");
 	    		
 	    		
-	    		while(driver.findElement(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]")).isDisplayed()){ //Check if the isername is already in use
+	    		//while(driver.findElement(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]")).isDisplayed()){ //Check if the isername is already in use
 		    		
 	    			
 	    		
 	    			//genlogin="mrt_test"+rand.nextInt(9999);
-	    			genlogin="mrt"+timesta;
+	    		//	genlogin="mrt"+timesta;
 	    			//genlogin="okbingo7";
-	    			driver.findElement(By.xpath(login)).clear(); 
-		    		driver.findElement(By.xpath(login)).sendKeys(genlogin);
-		    		driver.findElement(By.xpath(password)).clear(); 
+	    			//driver.findElement(By.xpath(login)).clear(); 
+		    		//driver.findElement(By.xpath(login)).sendKeys(genlogin);
+		    		//driver.findElement(By.xpath(password)).clear(); 
 		    		//driver.findElement(By.xpath(lname)).sendKeys("111111");
 	    			//emailerror = driver.findElements(By.xpath("//div[@id='registration_colA']/div[@id='regerrors'][1]"));
-	    			System.out.println("Username already registered");
+	    			//System.out.println("Username already registered");
 	    			    		
-	    		}
+	    		//}
 	    		
 	    		driver.findElement(By.xpath(password)).clear(); 
 	    		driver.findElement(By.xpath(password)).sendKeys("111111");
