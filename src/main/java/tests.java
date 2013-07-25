@@ -400,8 +400,14 @@ public class tests {
 	    		
 	    		System.out.println("Register finded");
 	    		try{
+	    		
 	    		driver.findElement(By.xpath(link[z])).click();
+	    		//String linkurl = clicklink.getAttribute("href");
+	    		//linkurl=linkurl.replace("http://","https://4646:4646@");
+	    		//driver.get(linkurl);
+	    		//System.out.println(linkurl);
 	    		System.out.println("Register Clicked");
+	    		Thread.sleep(500);
 	    		sendkeys();
 	    		
 	    		}catch(Exception e){
