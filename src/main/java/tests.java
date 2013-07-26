@@ -1,6 +1,8 @@
 package main.java;
 
 import java.awt.*;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import java.awt.event.*;
 import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
@@ -40,6 +42,7 @@ import org.openqa.selenium.Keyboard;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.TakesScreenshot;
 
 
 
@@ -87,18 +90,13 @@ public class tests {
 		
 		String tkind;
 		String tid;
-		
-		Date date = new Date();
-		SimpleDateFormat lt = new SimpleDateFormat ("dd.MM.yyyy.hh.mm.ss");
-		File file = new File("reports/"+lt.format(date)+".html");
-		File file2=new File("repor.txt");
+		timesta=timesta%1000000000;
+		File file = new File("reports/"+timesta+".html");
+		//File file2=new File("repor.txt");
 		file.delete();
-		file2.delete();
+		//file2.delete();
 		//System.out.println(new Timestamp(date.getTime()));
 		
-		System.out.println(timesta);
-		timesta=timesta%1000000000;
-		System.out.println(timesta);
 		try{
 			
 			
@@ -230,7 +228,7 @@ public class tests {
 		ls.close();
 		rs.close();
 		con.close();
-		Desktop.getDesktop().open(file);
+		//Desktop.getDesktop().open(file);
 		//Desktop.getDesktop().open(file2);
 		
 		
@@ -543,7 +541,7 @@ public class tests {
 	    			}
 	    		}
 	    			
-	    		String genmail="Daniel"+timesta+"@gg.com";
+	    		String genmail="QAautomation"+timesta+"@gtech.com";
 	    		driver.findElement(By.cssSelector(email)).clear(); 
 	    		driver.findElement(By.cssSelector(email)).sendKeys(genmail);
 	    		System.out.println("email");
@@ -644,7 +642,7 @@ public class tests {
 	    		
 	    		
 	    		try{
-	    			String screenname=genlogin.replace("mrt_", "");
+	    			String screenname=genlogin.replace("mrt", "");
 	    			
 	    			driver.findElement(By.xpath(screen)).clear(); 
 		    		driver.findElement(By.xpath(screen)).sendKeys(screenname); //Handle Screen name
@@ -663,8 +661,19 @@ public class tests {
     				stat3.executeUpdate("insert into testuser(username,email,level) values('" + genlogin + "','"+genmail+"','1')");
 	    		
     				System.out.println("User " + genlogin + " with email "+ genmail + " succesfully registered as level 1 user");
-    				result=result+"<p>USER="+genlogin+"----"+"E-Mail="+genmail+"-------"+"Level=1<p>-------Succesfully Registered";
     				
+    				String screenshot = "screenshots/screenshot" + timesta + ".png";
+    				try {
+
+    	                
+    					File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+    	                FileUtils.copyFile(scrFile, new File(screenshot));
+    	            } catch (IOException e1) {
+    	                e1.printStackTrace();
+    	            }
+    				
+    				result=result+"<p>USER="+genlogin+"----"+"E-Mail="+genmail+"-------"+"Level=1<p>-------Succesfully Registered";
+    				result=result+"<p> Click on the screenshot to see it larger <a href=../"+screenshot+"><img SRC=../"+screenshot+" width=100 height=100></a><p>";
     			}else{
     				
     				result=result+"<p>Something Fails in L1 registration<p>";
@@ -784,7 +793,7 @@ public class tests {
 	    		
 	    		while(ls.next()){
 	    			
-	    			System.out.println("vamos");
+	    			//System.out.println("vamos");
 	    			try {
 	    				success2=true;
 	    				rxpath=ls.getString("xpath");
