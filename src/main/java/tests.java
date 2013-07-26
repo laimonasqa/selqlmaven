@@ -133,17 +133,17 @@ public class tests {
 		rs.first();
 		String url=rs.getString("url");
 		
-		System.out.println(url);
-		if(url.contains("http://")){
+		//System.out.println(url);
+		//if(url.contains("http://")){
 		
-				url= url.replace("http://", "https://4646:4646@");
+			//	url= url.replace("http://", "https://4646:4646@");
 				
-		}else{
+		//}else{
 			
-				url= url.replace("https://", "https://4646:4646@");
-		}
+			//	url= url.replace("https://", "https://4646:4646@");
+		//}
 	
-		System.out.println(url);
+		//System.out.println(url);
 		
 		baseUrl=(url);
 		 //FirefoxBinary binary = new FirefoxBinary();  
@@ -305,6 +305,7 @@ public class tests {
 			character="";
 			character=character+(char)Integer.parseInt(charstouse[x]);
 			driver.findElement(By.cssSelector(xpath)).clear();
+			driver.findElement(By.cssSelector(xpath)).sendKeys("aaa");
 			driver.findElement(By.cssSelector(xpath)).sendKeys(character);
 			if(x<=0){driver.findElement(By.cssSelector(xpath)).sendKeys(Keys.TAB);}
 			
