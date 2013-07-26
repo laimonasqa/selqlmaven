@@ -230,6 +230,7 @@ public class tests {
 		con.close();
 		//Desktop.getDesktop().open(file);
 		//Desktop.getDesktop().open(file2);
+		System.out.println("All Tests Finished, please refer to " + file + " to see the report");
 		
 		
 
