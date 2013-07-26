@@ -150,8 +150,8 @@ public class tests {
 		 FirefoxProfile profile = new FirefoxProfile(firefoxProfileFolder);
 		 profile.setAcceptUntrustedCertificates(true);
 		 //profile.addExtension("autoauth-2.1-fx+fn.xpi");
-		 driver = new FirefoxDriver(profile);
-		 //driver = new FirefoxDriver();
+		 //driver = new FirefoxDriver(profile);
+		 driver = new FirefoxDriver();
 		
 		//FirefoxProfile ffprofile = new FirefoxProfile("c:\");
 		//ffprofile.setPreference("network.automatic-ntlm-auth.trusted-uris", "stminver-demo.com");
@@ -282,7 +282,7 @@ public class tests {
 
 		
 		
-		System.out.println("Hello");
+		//System.out.println("Hello");
 		
 
 	}
@@ -369,7 +369,7 @@ public class tests {
 		
 		String[] link= new String[count];
 		
-		System.out.println(count);
+		//System.out.println(count);
 		
 		if(count>=1){
 		
@@ -383,7 +383,7 @@ public class tests {
 				
 				link[row]=l1rs2.getString("tofind");				
 				link[row]=link[row].replaceAll("¬","'");
-				System.out.println(link[row]);
+				//System.out.println(link[row]);
 				row=row+1;
 			}
 			
@@ -399,43 +399,43 @@ public class tests {
 		fname=fname.replaceAll("¬","'");
 		lname=l1rs.getString("lname");
 		lname=lname.replaceAll("¬","'");
-		System.out.println(lname);
+		//System.out.println(lname);
 		email=l1rs.getString("email");
 		email=email.replaceAll("¬","'");
-		System.out.println(email);
+		//System.out.println(email);
 		day=l1rs.getString("day");
 		day=day.replaceAll("¬","'");
-		System.out.println(day);
+		//System.out.println(day);
 		month=l1rs.getString("month");
 		month=month.replaceAll("¬","'");
-		System.out.println(month);
+		//System.out.println(month);
 		year=l1rs.getString("year");
 		year=year.replaceAll("¬","'");
-		System.out.println(year);
+		//System.out.println(year);
 		next=l1rs.getString("next");
 		next=next.replaceAll("¬","'");
-		System.out.println(next);
+		//System.out.println(next);
 		eighteen=l1rs.getString("eighteen");
 		eighteen=eighteen.replaceAll("¬","'");
-		System.out.println(eighteen);
+		//System.out.println(eighteen);
 		accept=l1rs.getString("accept");
 		accept=accept.replaceAll("¬","'");
-		System.out.println(accept);
+		//System.out.println(accept);
 		login=l1rs.getString("login");
 		login=login.replaceAll("¬","'");
-		System.out.println(login);
+		//System.out.println(login);
 		password=l1rs.getString("password");
 		password=password.replaceAll("¬","'");
-		System.out.println(password);
+		//System.out.println(password);
 		repassword=l1rs.getString("repassword");
 		repassword=repassword.replaceAll("¬","'");
-		System.out.println(repassword);
+		//System.out.println(repassword);
 		fun=l1rs.getString("fun");
 		fun=fun.replaceAll("¬","'");
-		System.out.println(fun);
+		//System.out.println(fun);
 		realbutton=l1rs.getString("realbutton");
 		realbutton=realbutton.replaceAll("¬","'");
-		System.out.println(realbutton);
+		//System.out.println(realbutton);
 		screen="//div[@id='nicknameDialog']/form[@id='nicknameform']/p[@id='nicknameform_txt']/input[@id='nicknameform_input']";
 		
 		//System.out.println(link + "\n"+fname+ "\n"+lname+ "\n"+email+ "\n"+day+ "\n"+month+ "\n"+year+ "\n"+next+ "\n"+eighteen+ "\n"+accept+ "\n"+login+ "\n"+password+ "\n"+fun+ "\n"+realbutton);
